@@ -1,5 +1,3 @@
-import 'dart:developer' as developer;
-
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -20,14 +18,6 @@ double getStatusBar(BuildContext context) {
   return MediaQuery.of(context).viewPadding.top;
 }
 
-void logger(Object message) {
-  try {
-    developer.log(message.toString());
-  } catch (e) {
-    debugPrint(e.toString());
-  }
-}
-
 String boxName = 'incexpgbox';
 String keyName = 'incexpList';
 List<IncExp> incexpList = [];
@@ -40,75 +30,50 @@ Profile profile = Profile(
 );
 
 Future<void> getData() async {
-  try {
-    await SharedPreferences.getInstance().then((prefs) async {
-      // await prefs.remove('onboard');
-      // await prefs.clear();
-      onboard = prefs.getBool('onboard') ?? true;
-      profile.name = prefs.getString('profileName') ?? '';
-      profile.email = prefs.getString('profileEmail') ?? '';
-      profile.username = prefs.getString('profileUsername') ?? '';
-      profile.image = prefs.getString('profileImage') ?? '';
-    });
-  } catch (e) {
-    logger(e);
-  }
+  await SharedPreferences.getInstance().then((prefs) async {
+    // await prefs.remove('onboard');
+    // await prefs.clear();
+    onboard = prefs.getBool('onboard') ?? true;
+    profile.name = prefs.getString('profileName') ?? '';
+    profile.email = prefs.getString('profileEmail') ?? '';
+    profile.username = prefs.getString('profileUsername') ?? '';
+    profile.image = prefs.getString('profileImage') ?? '';
+  });
 }
 
 Future<void> saveOnboard() async {
-  try {
-    await SharedPreferences.getInstance().then((prefs) {
-      prefs.setBool('onboard', false);
-    });
-  } catch (e) {
-    logger(e);
-  }
+  await SharedPreferences.getInstance().then((prefs) {
+    prefs.setBool('onboard', false);
+  });
 }
 
 Future<void> saveProfile(Profile model) async {
-  try {
-    await SharedPreferences.getInstance().then((prefs) {
-      profile = model;
-      prefs.setString('profileName', model.name);
-      prefs.setString('profileEmail', model.email);
-      prefs.setString('profileUsername', model.username);
-      prefs.setString('profileImage', model.image);
-    });
-  } catch (e) {
-    logger(e);
-  }
+  await SharedPreferences.getInstance().then((prefs) {
+    profile = model;
+    prefs.setString('profileName', model.name);
+    prefs.setString('profileEmail', model.email);
+    prefs.setString('profileUsername', model.username);
+    prefs.setString('profileImage', model.image);
+  });
 }
 
 Future<void> initDB() async {
-  try {
-    await Hive.initFlutter();
-    // await Hive.deleteBoxFromDisk(boxName);
-    Hive.registerAdapter(IncExpAdapter());
-    await getData();
-  } catch (e) {
-    logger(e);
-  }
+  await Hive.initFlutter();
+  // await Hive.deleteBoxFromDisk(boxName);
+  Hive.registerAdapter(IncExpAdapter());
+  await getData();
 }
 
 Future<void> getModels() async {
-  try {
-    final box = await Hive.openBox(boxName);
-    List data = box.get(keyName) ?? [];
-    incexpList = data.cast<IncExp>();
-    logger(incexpList.length);
-  } catch (e) {
-    logger(e);
-  }
+  final box = await Hive.openBox(boxName);
+  List data = box.get(keyName) ?? [];
+  incexpList = data.cast<IncExp>();
 }
 
 Future<void> updateModels() async {
-  try {
-    final box = await Hive.openBox(boxName);
-    box.put(keyName, incexpList);
-    incexpList = await box.get(keyName);
-  } catch (e) {
-    logger(e);
-  }
+  final box = await Hive.openBox(boxName);
+  box.put(keyName, incexpList);
+  incexpList = await box.get(keyName);
 }
 
 String getCategoryAsset(String cat) {

@@ -49,7 +49,6 @@ class _OnboardProfilePageState extends State<OnboardProfilePage> {
       if (image == null) return XFile('');
       return image;
     } catch (e) {
-      logger(e);
       return XFile('');
     }
   }

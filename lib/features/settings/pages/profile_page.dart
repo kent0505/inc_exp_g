@@ -38,7 +38,6 @@ class _ProfilePageState extends State<ProfilePage> {
       if (image == null) return XFile('');
       return image;
     } catch (e) {
-      logger(e);
       return XFile('');
     }
   }
