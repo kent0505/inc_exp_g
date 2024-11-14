@@ -1,7 +1,9 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../blocs/inc_exp/inc_exp_bloc.dart';
 import '../../../core/config/app_colors.dart';
 import '../../../core/utils.dart';
 import '../widgets/add_button.dart';
@@ -91,13 +93,17 @@ class MainPageState extends State<MainPage> {
                 ),
               ),
               const Spacer(),
-              Text(
-                formatNumber(35000),
-                style: const TextStyle(
-                  color: Colors.white,
-                  fontSize: 34,
-                  fontFamily: Fonts.ns900,
-                ),
+              BlocBuilder<IncExpBloc, IncExpState>(
+                builder: (context, state) {
+                  return Text(
+                    formatNumber(getTotalAmount()),
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 34,
+                      fontFamily: Fonts.ns900,
+                    ),
+                  );
+                },
               ),
               const Spacer(),
             ],

@@ -41,8 +41,10 @@ class IncExpBloc extends Bloc<IncExpEvent, IncExpState> {
     Emitter<IncExpState> emit,
   ) async {
     for (IncExp model in incexpList) {
-      if (identical(model, event.model)) {
+      if (identical(model.id, event.model.id)) {
+        model.amount = event.model.amount;
         model.title = event.model.title;
+        model.category = event.model.category;
       }
     }
     await updateModels();

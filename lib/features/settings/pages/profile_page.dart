@@ -6,7 +6,7 @@ import '../../../core/config/app_colors.dart';
 import '../../../core/models/profile.dart';
 import '../../../core/utils.dart';
 import '../../../core/widgets/buttons/primary_button.dart';
-import '../../../core/widgets/custom_appbar.dart';
+import '../../../core/widgets/appbar.dart';
 import '../../../core/widgets/others/image_pick_widget.dart';
 import '../../../core/widgets/textfields/profile_field.dart';
 
@@ -78,7 +78,7 @@ class _ProfilePageState extends State<ProfilePage> {
     return Scaffold(
       body: Column(
         children: [
-          const CustomAppbar(title: 'Profile'),
+          const Appbar(title: 'Profile'),
           Expanded(
             child: ListView(
               padding: EdgeInsets.zero,

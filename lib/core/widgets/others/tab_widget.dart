@@ -7,11 +7,13 @@ class TabWidget extends StatefulWidget {
     super.key,
     required this.pages,
     required this.titles,
+    this.initialIndex = 0,
   }) : assert(
             pages.length == titles.length, 'Pages and titles count must match');
 
   final List<Widget> pages;
   final List<String> titles;
+  final int initialIndex;
 
   @override
   State<TabWidget> createState() => _TabWidgetState();
@@ -27,7 +29,7 @@ class _TabWidgetState extends State<TabWidget>
     _tabController = TabController(
       length: 3,
       vsync: this,
-      initialIndex: 1,
+      initialIndex: widget.initialIndex,
     );
   }
 

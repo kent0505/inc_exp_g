@@ -6,7 +6,7 @@ import 'package:intl/intl.dart';
 import 'models/inc_exp.dart';
 import 'models/profile.dart';
 
-int getCurrentTimestamp() {
+int timestamp() {
   return DateTime.now().millisecondsSinceEpoch ~/ 1000;
 }
 
@@ -41,7 +41,7 @@ Future<void> getData() async {
   });
 }
 
-Future<void> saveOnboard() async {
+Future<void> saveOnboarding() async {
   await SharedPreferences.getInstance().then((prefs) {
     prefs.setBool('onboard', false);
   });
@@ -112,4 +112,74 @@ List<String> getCategories(bool isIncome) {
           'Procurement',
           'Rest',
         ];
+}
+
+// int getTodayAmount(bool isIncome) {
+//   DateTime now = DateTime.now();
+//   int incomes = 0;
+//   int expenses = 0;
+//   for (IncExp model in incexpList) {
+//     DateTime date = DateTime.fromMillisecondsSinceEpoch(model.id * 1000);
+//     if (date.month == now.month &&
+//         date.year == now.year &&
+//         date.day == now.day) {
+//       model.isIncome ? incomes += model.amount : expenses += model.amount;
+//     }
+//   }
+//   return isIncome ? incomes : expenses;
+// }
+
+String getCurrentWeekday() {
+  return DateFormat('E').format(DateTime.now());
+}
+
+int getTotalAmount() {
+  int incomes = 0;
+  int expenses = 0;
+  for (IncExp model in incexpList) {
+    model.isIncome ? incomes += model.amount : expenses += model.amount;
+  }
+  return incomes - expenses;
+}
+
+double getTodayAmount(bool isIncome) {
+  final today = DateTime.now();
+  return incexpList.where((model) {
+    final date = DateTime.fromMillisecondsSinceEpoch(model.id * 1000);
+    return date.year == today.year &&
+        date.month == today.month &&
+        date.day == today.day &&
+        model.isIncome == isIncome;
+  }).fold(0, (sum, model) => sum + model.amount);
+}
+
+List<double> getWeekAmounts(bool isIncome) {
+  final now = DateTime.now();
+  final startOfWeek = now.subtract(Duration(days: now.weekday - 1));
+  List<double> weeklyAmounts = List.filled(7, 0);
+  for (var model in incexpList) {
+    final date = DateTime.fromMillisecondsSinceEpoch(model.id * 1000);
+    if (date.isAfter(startOfWeek.subtract(const Duration(days: 1))) &&
+        date.isBefore(startOfWeek.add(const Duration(days: 7))) &&
+        model.isIncome == isIncome) {
+      int weekdayIndex = date.weekday - 1;
+      weeklyAmounts[weekdayIndex] += model.amount;
+    }
+  }
+  return weeklyAmounts;
+}
+
+List<double> getMonthAmounts(bool isIncome) {
+  final today = DateTime.now();
+  final List<double> weeklyAmounts = List.filled(4, 0.0);
+  for (final model in incexpList) {
+    final date = DateTime.fromMillisecondsSinceEpoch(model.id * 1000);
+    if (date.year == today.year &&
+        date.month == today.month &&
+        model.isIncome == isIncome) {
+      final weekIndex = ((date.day - 1) ~/ 7);
+      weeklyAmounts[weekIndex] += model.amount;
+    }
+  }
+  return weeklyAmounts;
 }

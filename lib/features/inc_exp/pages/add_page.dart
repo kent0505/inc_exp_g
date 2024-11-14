@@ -8,7 +8,7 @@ import '../../../core/config/app_colors.dart';
 import '../../../core/models/inc_exp.dart';
 import '../../../core/utils.dart';
 import '../../../core/widgets/buttons/primary_button.dart';
-import '../../../core/widgets/custom_appbar.dart';
+import '../../../core/widgets/appbar.dart';
 import '../../../core/widgets/textfields/custom_text_field.dart';
 import '../widgets/category_button.dart';
 import '../widgets/title_text.dart';
@@ -52,7 +52,7 @@ class _AddPageState extends State<AddPage> {
     context.read<IncExpBloc>().add(
           AddIncExpEvent(
             model: IncExp(
-              id: getCurrentTimestamp(),
+              id: timestamp(),
               amount: int.tryParse(controller1.text) ?? 0,
               title: controller2.text,
               category: controller3.text,
@@ -79,6 +79,7 @@ class _AddPageState extends State<AddPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Stack(
         children: [
           Container(
@@ -92,7 +93,7 @@ class _AddPageState extends State<AddPage> {
           ),
           Column(
             children: [
-              CustomAppbar(
+              Appbar(
                 title: widget.isIncome ? 'Add Income' : 'Add Expense',
                 white: true,
               ),

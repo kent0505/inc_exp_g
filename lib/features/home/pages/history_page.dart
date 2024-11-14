@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../blocs/inc_exp/inc_exp_bloc.dart';
-import '../../../core/widgets/custom_appbar.dart';
+import '../../../core/widgets/appbar.dart';
 import '../../../core/widgets/others/no_data.dart';
 import '../../../core/widgets/others/tab_widget.dart';
 import '../widgets/history_card.dart';
@@ -15,13 +15,14 @@ class HistoryPage extends StatelessWidget {
     return Scaffold(
       body: Column(
         children: [
-          const CustomAppbar(title: 'History'),
+          const Appbar(title: 'History'),
           const SizedBox(height: 30),
           BlocBuilder<IncExpBloc, IncExpState>(
             builder: (context, state) {
               if (state is IncExpLoadedState) {
                 return Expanded(
                   child: TabWidget(
+                    initialIndex: 1,
                     titles: const ['Income', 'All', 'Expense'],
                     pages: [
                       _buildHistoryList(state, isIncome: true),

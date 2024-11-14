@@ -8,7 +8,7 @@ import '../../../core/config/app_colors.dart';
 import '../../../core/models/inc_exp.dart';
 import '../../../core/utils.dart';
 import '../../../core/widgets/buttons/primary_button.dart';
-import '../../../core/widgets/custom_appbar.dart';
+import '../../../core/widgets/appbar.dart';
 import '../../../core/widgets/dialogs/delete_dialog.dart';
 import '../../../core/widgets/textfields/custom_text_field.dart';
 import '../widgets/category_button.dart';
@@ -100,6 +100,7 @@ class _AddPageState extends State<EditPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Stack(
         children: [
           Container(
@@ -113,7 +114,7 @@ class _AddPageState extends State<EditPage> {
           ),
           Column(
             children: [
-              CustomAppbar(
+              Appbar(
                 title: widget.model.isIncome ? 'Edit Income' : 'Edit Expense',
                 white: true,
                 onDelete: onDelete,

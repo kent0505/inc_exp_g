@@ -3,7 +3,7 @@ import 'package:go_router/go_router.dart';
 
 import '../../../core/config/app_colors.dart';
 import '../../../core/widgets/buttons/cuper_button.dart';
-import '../../../core/widgets/custom_appbar.dart';
+import '../../../core/widgets/appbar.dart';
 import '../../../core/widgets/others/svg_widget.dart';
 
 class SettingsPage extends StatelessWidget {
@@ -13,7 +13,7 @@ class SettingsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        const CustomAppbar(title: 'Settings', back: false),
+        const Appbar(title: 'Settings', back: false),
         const Spacer(),
         _SettingsButton(
           id: 1,

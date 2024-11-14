@@ -27,23 +27,23 @@ class _OnboardProfilePageState extends State<OnboardProfilePage> {
   XFile image = XFile('');
   bool pick = false;
 
-  String getTitle() {
+  String title() {
     return pick ? 'Add your photo' : 'Let\'s get to know you!';
   }
 
-  String getDescription() {
+  String description() {
     return pick
         ? 'To make it easy for your friends to find you.'
         : 'Enter your name, email and desired username';
   }
 
   void onPickImage() async {
-    image = await pickImage();
+    image = await pickImg();
     controller4.text = image.path;
     setState(() {});
   }
 
-  Future<XFile> pickImage() async {
+  Future<XFile> pickImg() async {
     try {
       final image = await ImagePicker().pickImage(source: ImageSource.gallery);
       if (image == null) return XFile('');
@@ -53,21 +53,8 @@ class _OnboardProfilePageState extends State<OnboardProfilePage> {
     }
   }
 
-  void onSave() async {
-    await saveProfile(
-      Profile(
-        name: controller1.text,
-        email: controller2.text,
-        username: controller3.text,
-        image: controller4.text,
-      ),
-    ).then((_) {
-      if (mounted) context.pop();
-    });
-  }
-
   void onSkip() async {
-    await saveOnboard().then((value) {
+    await saveOnboarding().then((value) {
       if (mounted) context.go('/home');
     });
   }
@@ -82,7 +69,7 @@ class _OnboardProfilePageState extends State<OnboardProfilePage> {
           image: controller4.text,
         ),
       );
-      await saveOnboard().then((value) {
+      await saveOnboarding().then((value) {
         if (mounted) context.go('/home');
       });
     } else {
@@ -99,6 +86,15 @@ class _OnboardProfilePageState extends State<OnboardProfilePage> {
     controller2.text = profile.email;
     controller3.text = profile.username;
     controller4.text = profile.image;
+  }
+
+  @override
+  void dispose() {
+    controller1.dispose();
+    controller2.dispose();
+    controller3.dispose();
+    controller4.dispose();
+    super.dispose();
   }
 
   @override
@@ -130,7 +126,7 @@ class _OnboardProfilePageState extends State<OnboardProfilePage> {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 24),
             child: Text(
-              getTitle(),
+              title(),
               textAlign: TextAlign.center,
               style: const TextStyle(
                 color: AppColors.main,
@@ -198,7 +194,7 @@ class _OnboardProfilePageState extends State<OnboardProfilePage> {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 52),
             child: Text(
-              getDescription(),
+              description(),
               textAlign: TextAlign.center,
               style: const TextStyle(
                 height: 1.8,

@@ -6,8 +6,8 @@ import '../utils.dart';
 import 'buttons/cuper_button.dart';
 import 'others/svg_widget.dart';
 
-class CustomAppbar extends StatelessWidget {
-  const CustomAppbar({
+class Appbar extends StatelessWidget {
+  const Appbar({
     super.key,
     required this.title,
     this.white = false,
