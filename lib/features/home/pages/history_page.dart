@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:inc_exp_g/core/widgets/others/tab_widget.dart';
 
 import '../../../blocs/inc_exp/inc_exp_bloc.dart';
 import '../../../core/widgets/custom_appbar.dart';
 import '../../../core/widgets/custom_scaffold.dart';
+import '../../../core/widgets/others/no_data.dart';
+import '../../../core/widgets/others/tab_widget.dart';
 import '../widgets/history_card.dart';
 
 class HistoryPage extends StatelessWidget {
@@ -22,45 +23,12 @@ class HistoryPage extends StatelessWidget {
               if (state is IncExpLoadedState) {
                 return Expanded(
                   child: TabWidget(
-                    page1: ListView(
-                      padding: const EdgeInsets.symmetric(horizontal: 26),
-                      children: [
-                        const SizedBox(height: 15),
-                        ...List.generate(
-                          state.models.length,
-                          (index) {
-                            return HistoryCard(model: state.models[index]);
-                          },
-                        )
-                      ],
-                    ),
-                    page2: ListView(
-                      padding: const EdgeInsets.symmetric(horizontal: 26),
-                      children: [
-                        const SizedBox(height: 15),
-                        ...List.generate(
-                          state.models.length,
-                          (index) {
-                            return HistoryCard(model: state.models[index]);
-                          },
-                        )
-                      ],
-                    ),
-                    page3: ListView(
-                      padding: const EdgeInsets.symmetric(horizontal: 26),
-                      children: [
-                        const SizedBox(height: 15),
-                        ...List.generate(
-                          state.models.length,
-                          (index) {
-                            return HistoryCard(model: state.models[index]);
-                          },
-                        )
-                      ],
-                    ),
-                    title1: 'Income',
-                    title2: 'All',
-                    title3: 'Expense',
+                    titles: const ['Income', 'All', 'Expense'],
+                    pages: [
+                      _buildHistoryList(state, isIncome: true),
+                      _buildHistoryList(state),
+                      _buildHistoryList(state, isIncome: false),
+                    ],
                   ),
                 );
               }
@@ -71,5 +39,24 @@ class HistoryPage extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  Widget _buildHistoryList(IncExpLoadedState state, {bool? isIncome}) {
+    final filteredModels = isIncome == null
+        ? state.models
+        : state.models.where((model) => model.isIncome == isIncome).toList();
+
+    return filteredModels.isEmpty
+        ? const NoData()
+        : ListView.builder(
+            padding: const EdgeInsets.symmetric(horizontal: 26),
+            itemCount: filteredModels.length,
+            itemBuilder: (context, index) => Column(
+              children: [
+                if (index == 0) const SizedBox(height: 15),
+                HistoryCard(model: filteredModels[index]),
+              ],
+            ),
+          );
   }
 }

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../core/widgets/texts/text_widget.dart';
+import '../../../core/widgets/custom_appbar.dart';
 
 class SettingsPage extends StatelessWidget {
   const SettingsPage({super.key});
@@ -9,10 +9,7 @@ class SettingsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Column(
       children: [
-        TextWidget(
-          'Settings',
-          fontSize: 20,
-        ),
+        CustomAppbar(title: 'Settings', back: false),
       ],
     );
   }

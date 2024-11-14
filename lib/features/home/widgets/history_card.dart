@@ -26,7 +26,7 @@ class HistoryCard extends StatelessWidget {
       ),
       child: CuperButton(
         onPressed: () {
-          context.push('/edit', extra: model);
+          context.push('/home/edit', extra: model);
         },
         child: Row(
           children: [

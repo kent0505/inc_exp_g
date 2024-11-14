@@ -1,31 +1,21 @@
 import 'package:flutter/material.dart';
 
-import '../texts/text_widget.dart';
+import '../../config/app_colors.dart';
 
 class NoData extends StatelessWidget {
-  const NoData({
-    super.key,
-    this.expanded = true,
-  });
-
-  final bool expanded;
+  const NoData({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return expanded
-        ? const Expanded(
-            child: Center(
-              child: TextWidget(
-                'No data',
-                fontSize: 14,
-              ),
-            ),
-          )
-        : const Center(
-            child: TextWidget(
-              'No data',
-              fontSize: 14,
-            ),
-          );
+    return const Center(
+      child: Text(
+        'No data',
+        style: TextStyle(
+          color: Colors.black,
+          fontSize: 14,
+          fontFamily: Fonts.ns700,
+        ),
+      ),
+    );
   }
 }

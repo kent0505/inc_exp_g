@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import '../../config/app_colors.dart';
 import '../buttons/cuper_button.dart';
-import '../texts/text_widget.dart';
 
 class DeleteDialog extends StatelessWidget {
   const DeleteDialog({
@@ -19,13 +18,17 @@ class DeleteDialog extends StatelessWidget {
     return Dialog(
       backgroundColor: AppColors.main,
       child: SizedBox(
-        height: 150,
+        height: 200,
         child: Column(
           children: [
             const SizedBox(height: 20),
-            TextWidget(
+            Text(
               title,
-              fontSize: 18,
+              style: const TextStyle(
+                fontSize: 20,
+                fontFamily: Fonts.ns700,
+                color: Colors.white,
+              ),
             ),
             const Spacer(),
             Row(
@@ -73,9 +76,13 @@ class _Button extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          TextWidget(
+          Text(
             title,
-            fontSize: 14,
+            style: const TextStyle(
+              fontSize: 16,
+              fontFamily: Fonts.ns600,
+              color: Colors.white,
+            ),
           ),
         ],
       ),

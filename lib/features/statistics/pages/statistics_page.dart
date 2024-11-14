@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../core/widgets/texts/text_widget.dart';
+import '../../../core/widgets/custom_appbar.dart';
 
 class StatisticsPage extends StatelessWidget {
   const StatisticsPage({super.key});
@@ -9,10 +9,7 @@ class StatisticsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Column(
       children: [
-        TextWidget(
-          'Statistics',
-          fontSize: 20,
-        ),
+        CustomAppbar(title: 'Statistic', back: false),
       ],
     );
   }

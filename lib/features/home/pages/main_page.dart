@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:inc_exp_g/features/home/widgets/add_button.dart';
 
 import '../../../core/config/app_colors.dart';
 import '../../../core/utils.dart';
+import '../widgets/add_button.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
@@ -17,11 +17,23 @@ class MainPageState extends State<MainPage> {
     return Column(
       children: [
         SizedBox(height: 8 + getStatusBar(context)),
-        const Row(
+        Row(
           children: [
-            SizedBox(width: 60),
-            Spacer(),
-            Text(
+            const SizedBox(width: 60),
+            Container(
+              height: 34,
+              width: 34,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                color: Colors.white,
+                border: Border.all(
+                  width: 1,
+                  color: AppColors.main,
+                ),
+              ),
+            ),
+            const Spacer(),
+            const Text(
               'Balance',
               style: TextStyle(
                 fontSize: 36,
@@ -29,8 +41,9 @@ class MainPageState extends State<MainPage> {
                 fontFamily: Fonts.ns700,
               ),
             ),
-            Spacer(),
-            SizedBox(width: 60),
+            const SizedBox(width: 34),
+            const Spacer(),
+            const SizedBox(width: 60),
           ],
         ),
         const SizedBox(height: 16),
@@ -48,10 +61,10 @@ class MainPageState extends State<MainPage> {
               ),
             ],
           ),
-          child: const Column(
+          child: Column(
             children: [
-              SizedBox(height: 15),
-              Center(
+              const SizedBox(height: 15),
+              const Center(
                 child: Text(
                   'Id: 00001',
                   style: TextStyle(
@@ -61,16 +74,16 @@ class MainPageState extends State<MainPage> {
                   ),
                 ),
               ),
-              Spacer(),
+              const Spacer(),
               Text(
-                '\$ 35 866.00',
-                style: TextStyle(
+                formatNumber(35000),
+                style: const TextStyle(
                   color: Colors.white,
                   fontSize: 34,
                   fontFamily: Fonts.ns900,
                 ),
               ),
-              Spacer(),
+              const Spacer(),
             ],
           ),
         ),
@@ -78,20 +91,11 @@ class MainPageState extends State<MainPage> {
         const Row(
           children: [
             SizedBox(width: 60),
-            AddButton(
-              title: 'Income',
-              asset: 'add1',
-            ),
+            AddButton(title: 'Income', asset: 'add1'),
             Spacer(),
-            AddButton(
-              title: 'Expense',
-              asset: 'add2',
-            ),
+            AddButton(title: 'Expense', asset: 'add2'),
             Spacer(),
-            AddButton(
-              title: 'History',
-              asset: 'history',
-            ),
+            AddButton(title: 'History', asset: 'history'),
             SizedBox(width: 60),
           ],
         ),

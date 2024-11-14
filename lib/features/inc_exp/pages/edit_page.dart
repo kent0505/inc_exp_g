@@ -10,6 +10,7 @@ import '../../../core/utils.dart';
 import '../../../core/widgets/buttons/primary_button.dart';
 import '../../../core/widgets/custom_appbar.dart';
 import '../../../core/widgets/custom_scaffold.dart';
+import '../../../core/widgets/dialogs/delete_dialog.dart';
 import '../../../core/widgets/textfields/custom_text_field.dart';
 import '../widgets/category_button.dart';
 import '../widgets/title_text.dart';
@@ -64,6 +65,23 @@ class _AddPageState extends State<EditPage> {
     context.pop();
   }
 
+  void onDelete() {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return DeleteDialog(
+          title: widget.model.isIncome ? 'Delete Income?' : 'Delete Expense?',
+          onYes: () {
+            context
+                .read<IncExpBloc>()
+                .add(DeleteIncExpEvent(model: widget.model));
+            context.pop();
+          },
+        );
+      },
+    );
+  }
+
   @override
   void initState() {
     super.initState();
@@ -99,6 +117,7 @@ class _AddPageState extends State<EditPage> {
               CustomAppbar(
                 title: widget.model.isIncome ? 'Edit Income' : 'Edit Expense',
                 white: true,
+                onDelete: onDelete,
               ),
               const SizedBox(height: 30),
               Expanded(
@@ -159,6 +178,7 @@ class _AddPageState extends State<EditPage> {
                             );
                           },
                         ),
+                        const SizedBox(height: 42),
                       ],
                     ),
                   ),

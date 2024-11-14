@@ -11,62 +11,62 @@ int getCurrentTimestamp() {
   return DateTime.now().millisecondsSinceEpoch ~/ 1000;
 }
 
-String timestampToString(int timestamp) {
-  // timestamp to 22.06.2000
-  try {
-    DateTime date = DateTime.fromMillisecondsSinceEpoch(timestamp * 1000);
-    return DateFormat('dd.MM.yyyy').format(date);
-  } catch (e) {
-    return 'Error';
-  }
-}
+// String timestampToString(int timestamp) {
+//   // timestamp to 22.06.2000
+//   try {
+//     DateTime date = DateTime.fromMillisecondsSinceEpoch(timestamp * 1000);
+//     return DateFormat('dd.MM.yyyy').format(date);
+//   } catch (e) {
+//     return 'Error';
+//   }
+// }
 
-String dateToString(DateTime date) {
-  // DateTime to 22.06.2000
-  try {
-    return DateFormat('dd.MM.yyyy').format(date);
-  } catch (e) {
-    return 'Error';
-  }
-}
+// String dateToString(DateTime date) {
+//   // DateTime to 22.06.2000
+//   try {
+//     return DateFormat('dd.MM.yyyy').format(date);
+//   } catch (e) {
+//     return 'Error';
+//   }
+// }
 
-String timeToString(DateTime time) {
-  // DateTime to 22:00
-  try {
-    return DateFormat('HH:mm').format(time);
-  } catch (e) {
-    return 'Error';
-  }
-}
+// String timeToString(DateTime time) {
+//   // DateTime to 22:00
+//   try {
+//     return DateFormat('HH:mm').format(time);
+//   } catch (e) {
+//     return 'Error';
+//   }
+// }
 
-DateTime stringToDate(String date) {
-  // 22.06.2000 to DateTime
-  try {
-    return DateFormat('dd.MM.yyyy').parse(date);
-  } catch (e) {
-    return DateTime.now();
-  }
-}
+// DateTime stringToDate(String date) {
+//   // 22.06.2000 to DateTime
+//   try {
+//     return DateFormat('dd.MM.yyyy').parse(date);
+//   } catch (e) {
+//     return DateTime.now();
+//   }
+// }
 
 String formatNumber(int number) {
-  return NumberFormat('#,###').format(number);
+  return '\$ ${NumberFormat('#,###').format(number).replaceAll(',', ' ')}';
 }
 
 double getStatusBar(BuildContext context) {
   return MediaQuery.of(context).viewPadding.top;
 }
 
-double getBottom(BuildContext context) {
-  return MediaQuery.of(context).viewPadding.bottom;
-}
+// double getBottom(BuildContext context) {
+//   return MediaQuery.of(context).viewPadding.bottom;
+// }
 
-double getWidth(BuildContext context) {
-  return MediaQuery.of(context).size.width;
-}
+// double getWidth(BuildContext context) {
+//   return MediaQuery.of(context).size.width;
+// }
 
-double getHeight(BuildContext context) {
-  return MediaQuery.of(context).size.height;
-}
+// double getHeight(BuildContext context) {
+//   return MediaQuery.of(context).size.height;
+// }
 
 void logger(Object message) {
   try {

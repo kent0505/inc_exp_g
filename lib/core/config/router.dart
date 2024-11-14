@@ -3,8 +3,10 @@ import 'package:go_router/go_router.dart';
 import '../../features/home/pages/history_page.dart';
 import '../../features/home/pages/home_page.dart';
 import '../../features/inc_exp/pages/add_page.dart';
+import '../../features/inc_exp/pages/edit_page.dart';
 import '../../features/splash/onboard_page.dart';
 import '../../features/splash/splash_page.dart';
+import '../models/inc_exp.dart';
 
 final routerConfig = GoRouter(
   initialLocation: '/',
@@ -25,6 +27,12 @@ final routerConfig = GoRouter(
           path: 'add',
           builder: (context, state) => AddPage(
             isIncome: state.extra as bool,
+          ),
+        ),
+        GoRoute(
+          path: 'edit',
+          builder: (context, state) => EditPage(
+            model: state.extra as IncExp,
           ),
         ),
         GoRoute(

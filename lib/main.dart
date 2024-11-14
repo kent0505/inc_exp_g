@@ -38,7 +38,7 @@ class MyApp extends StatelessWidget {
           ),
           dialogTheme: const DialogTheme(
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.all(Radius.circular(24)),
+              borderRadius: BorderRadius.all(Radius.circular(18)),
             ),
           ),
         ),

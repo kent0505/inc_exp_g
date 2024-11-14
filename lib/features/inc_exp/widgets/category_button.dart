@@ -62,8 +62,7 @@ class CategoryButton extends StatelessWidget {
               width: 18,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                color:
-                    identical(title, current) ? AppColors.main : Colors.white,
+                color: title == current ? AppColors.main : Colors.white,
                 border: Border.all(
                   width: 1,
                   color: AppColors.main,
