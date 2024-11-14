@@ -90,7 +90,7 @@ Profile profile = Profile(
 
 Future<void> getData() async {
   try {
-    await SharedPreferences.getInstance().then((prefs) {
+    await SharedPreferences.getInstance().then((prefs) async {
       // await prefs.remove('onboard');
       // await prefs.clear();
       onboard = prefs.getBool('onboard') ?? true;

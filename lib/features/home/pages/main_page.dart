@@ -41,6 +41,9 @@ class MainPageState extends State<MainPage> {
                     width: 34,
                     height: 34,
                     fit: BoxFit.cover,
+                    errorBuilder: (context, error, stackTrace) {
+                      return Container();
+                    },
                   ),
                 ),
               ),

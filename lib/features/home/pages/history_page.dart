@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../blocs/inc_exp/inc_exp_bloc.dart';
 import '../../../core/widgets/custom_appbar.dart';
-import '../../../core/widgets/custom_scaffold.dart';
 import '../../../core/widgets/others/no_data.dart';
 import '../../../core/widgets/others/tab_widget.dart';
 import '../widgets/history_card.dart';
@@ -13,7 +12,7 @@ class HistoryPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CustomScaffold(
+    return Scaffold(
       body: Column(
         children: [
           const CustomAppbar(title: 'History'),

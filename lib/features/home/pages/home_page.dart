@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../core/utils.dart';
-import '../../../core/widgets/custom_scaffold.dart';
 import '../../../blocs/navbar/navbar_bloc.dart';
 import '../../statistics/pages/statistics_page.dart';
 import '../../lessons/pages/lessons_page.dart';
@@ -15,7 +14,7 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CustomScaffold(
+    return Scaffold(
       body: Stack(
         children: [
           BlocConsumer<NavbarBloc, NavbarState>(

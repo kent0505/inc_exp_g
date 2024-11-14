@@ -9,7 +9,6 @@ import '../../../core/models/inc_exp.dart';
 import '../../../core/utils.dart';
 import '../../../core/widgets/buttons/primary_button.dart';
 import '../../../core/widgets/custom_appbar.dart';
-import '../../../core/widgets/custom_scaffold.dart';
 import '../../../core/widgets/dialogs/delete_dialog.dart';
 import '../../../core/widgets/textfields/custom_text_field.dart';
 import '../widgets/category_button.dart';
@@ -100,7 +99,7 @@ class _AddPageState extends State<EditPage> {
 
   @override
   Widget build(BuildContext context) {
-    return CustomScaffold(
+    return Scaffold(
       body: Stack(
         children: [
           Container(

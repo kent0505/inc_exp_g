@@ -9,7 +9,6 @@ import '../../../core/models/inc_exp.dart';
 import '../../../core/utils.dart';
 import '../../../core/widgets/buttons/primary_button.dart';
 import '../../../core/widgets/custom_appbar.dart';
-import '../../../core/widgets/custom_scaffold.dart';
 import '../../../core/widgets/textfields/custom_text_field.dart';
 import '../widgets/category_button.dart';
 import '../widgets/title_text.dart';
@@ -79,7 +78,7 @@ class _AddPageState extends State<AddPage> {
 
   @override
   Widget build(BuildContext context) {
-    return CustomScaffold(
+    return Scaffold(
       body: Stack(
         children: [
           Container(

@@ -5,7 +5,6 @@ import 'package:go_router/go_router.dart';
 import '../../blocs/inc_exp/inc_exp_bloc.dart';
 import '../../core/utils.dart';
 import '../../core/widgets/others/loading_widget.dart';
-import '../../core/widgets/custom_scaffold.dart';
 
 class SplashPage extends StatefulWidget {
   const SplashPage({super.key});
@@ -44,7 +43,7 @@ class _SplashPageState extends State<SplashPage> {
 
   @override
   Widget build(BuildContext context) {
-    return CustomScaffold(
+    return Scaffold(
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [

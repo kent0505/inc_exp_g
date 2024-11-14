@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../../config/app_colors.dart';
-import '../texts/text_widget.dart';
 
 class LoadingWidget extends StatelessWidget {
   const LoadingWidget({super.key});
@@ -48,43 +47,6 @@ class LoadingWidget2 extends StatelessWidget {
             ),
           ],
         ),
-      ),
-    );
-  }
-}
-
-class LoadingWidget3 extends StatefulWidget {
-  const LoadingWidget3({super.key});
-
-  @override
-  State<LoadingWidget3> createState() => _LoadingWidget3State();
-}
-
-class _LoadingWidget3State extends State<LoadingWidget3>
-    with SingleTickerProviderStateMixin {
-  late AnimationController controller;
-
-  @override
-  void initState() {
-    super.initState();
-    controller = AnimationController(
-      duration: const Duration(milliseconds: 2000),
-      vsync: this,
-    )..repeat();
-  }
-
-  @override
-  void dispose() {
-    controller.dispose();
-    super.dispose();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: RotationTransition(
-        turns: controller,
-        child: const TextWidget('Loading...', fontSize: 20),
       ),
     );
   }

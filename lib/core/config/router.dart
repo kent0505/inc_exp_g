@@ -6,6 +6,7 @@ import '../../features/inc_exp/pages/add_page.dart';
 import '../../features/inc_exp/pages/edit_page.dart';
 import '../../features/settings/pages/profile_page.dart';
 import '../../features/splash/onboard_page.dart';
+import '../../features/splash/onboard_profile_page.dart';
 import '../../features/splash/splash_page.dart';
 import '../models/inc_exp.dart';
 
@@ -19,6 +20,12 @@ final routerConfig = GoRouter(
     GoRoute(
       path: '/onboard',
       builder: (context, state) => const OnboardPage(),
+      routes: [
+        GoRoute(
+          path: 'profile',
+          builder: (context, state) => const OnboardProfilePage(),
+        ),
+      ],
     ),
     GoRoute(
       path: '/home',
