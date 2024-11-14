@@ -10,6 +10,10 @@ int timestamp() {
   return DateTime.now().millisecondsSinceEpoch ~/ 1000;
 }
 
+String dateToString(DateTime date) {
+  return DateFormat('MMM dd yyyy').format(date);
+}
+
 String formatNumber(int number) {
   return '\$ ${NumberFormat('#,###').format(number).replaceAll(',', ' ')}';
 }

@@ -2,10 +2,14 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../blocs/inc_exp/inc_exp_bloc.dart';
 import '../../../core/config/app_colors.dart';
+import '../../../core/models/newss.dart';
 import '../../../core/utils.dart';
+import '../../../core/widgets/buttons/cuper_button.dart';
+import '../../news/widgets/news_card.dart';
 import '../widgets/add_button.dart';
 
 class MainPage extends StatefulWidget {
@@ -125,6 +129,47 @@ class MainPageState extends State<MainPage> {
         Expanded(
           child: Container(
             color: AppColors.main,
+            child: ListView(
+              padding: const EdgeInsets.symmetric(horizontal: 28),
+              children: [
+                const SizedBox(height: 26),
+                Row(
+                  children: [
+                    const SizedBox(width: 33),
+                    const Text(
+                      'News',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 24,
+                        fontFamily: Fonts.ns700,
+                      ),
+                    ),
+                    const Spacer(),
+                    CuperButton(
+                      onPressed: () {
+                        context.push('/home/news');
+                      },
+                      minSize: 20,
+                      child: const Text(
+                        'See all',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 12,
+                          fontFamily: Fonts.ns700,
+                          decoration: TextDecoration.underline,
+                        ),
+                      ),
+                    ),
+                    const SizedBox(width: 33),
+                  ],
+                ),
+                const SizedBox(height: 20),
+                NewsCard(newss: newssList[0]),
+                NewsCard(newss: newssList[1]),
+                NewsCard(newss: newssList[2]),
+                const SizedBox(height: 72),
+              ],
+            ),
           ),
         ),
       ],

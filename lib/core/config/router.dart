@@ -4,11 +4,14 @@ import '../../features/home/pages/history_page.dart';
 import '../../features/home/pages/home_page.dart';
 import '../../features/inc_exp/pages/add_page.dart';
 import '../../features/inc_exp/pages/edit_page.dart';
+import '../../features/news/pages/detail_news_page.dart';
+import '../../features/news/pages/news_page.dart';
 import '../../features/settings/pages/profile_page.dart';
 import '../../features/splash/onboard_page.dart';
 import '../../features/splash/onboard_profile_page.dart';
 import '../../features/splash/splash_page.dart';
 import '../models/inc_exp.dart';
+import '../models/newss.dart';
 
 final routerConfig = GoRouter(
   initialLocation: '/',
@@ -46,6 +49,16 @@ final routerConfig = GoRouter(
         GoRoute(
           path: 'history',
           builder: (context, state) => const HistoryPage(),
+        ),
+        GoRoute(
+          path: 'news',
+          builder: (context, state) => const NewsPage(),
+        ),
+        GoRoute(
+          path: 'detailnews',
+          builder: (context, state) => DetailNewsPage(
+            newss: state.extra as Newss,
+          ),
         ),
         GoRoute(
           path: 'profile',
