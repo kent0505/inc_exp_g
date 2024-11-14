@@ -49,7 +49,5 @@ class MyApp extends StatelessWidget {
   }
 }
 
-// lessons
-// onboard
 // news
 // statistics
