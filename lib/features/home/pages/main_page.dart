@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 
 import '../../../core/config/app_colors.dart';
@@ -29,6 +31,17 @@ class MainPageState extends State<MainPage> {
                 border: Border.all(
                   width: 1,
                   color: AppColors.main,
+                ),
+              ),
+              child: Center(
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(34),
+                  child: Image.file(
+                    File(profile.image),
+                    width: 34,
+                    height: 34,
+                    fit: BoxFit.cover,
+                  ),
                 ),
               ),
             ),

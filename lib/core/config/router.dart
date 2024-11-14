@@ -4,6 +4,7 @@ import '../../features/home/pages/history_page.dart';
 import '../../features/home/pages/home_page.dart';
 import '../../features/inc_exp/pages/add_page.dart';
 import '../../features/inc_exp/pages/edit_page.dart';
+import '../../features/settings/pages/profile_page.dart';
 import '../../features/splash/onboard_page.dart';
 import '../../features/splash/splash_page.dart';
 import '../models/inc_exp.dart';
@@ -38,6 +39,10 @@ final routerConfig = GoRouter(
         GoRoute(
           path: 'history',
           builder: (context, state) => const HistoryPage(),
+        ),
+        GoRoute(
+          path: 'profile',
+          builder: (context, state) => const ProfilePage(),
         ),
       ],
     ),

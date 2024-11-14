@@ -30,6 +30,7 @@ class MyApp extends StatelessWidget {
       child: MaterialApp.router(
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
+          scaffoldBackgroundColor: Colors.white,
           useMaterial3: false,
           primarySwatch: Colors.grey,
           fontFamily: Fonts.ns400,
@@ -47,3 +48,8 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
+// lessons
+// onboard
+// news
+// statistics

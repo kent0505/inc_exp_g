@@ -6,6 +6,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:intl/intl.dart';
 
 import 'models/inc_exp.dart';
+import 'models/profile.dart';
 
 int getCurrentTimestamp() {
   return DateTime.now().millisecondsSinceEpoch ~/ 1000;
@@ -80,6 +81,12 @@ String boxName = 'incexpgbox';
 String keyName = 'incexpList';
 List<IncExp> incexpList = [];
 bool onboard = true;
+Profile profile = Profile(
+  name: '',
+  email: '',
+  username: '',
+  image: '',
+);
 
 Future<void> getData() async {
   try {
@@ -87,6 +94,10 @@ Future<void> getData() async {
       // await prefs.remove('onboard');
       // await prefs.clear();
       onboard = prefs.getBool('onboard') ?? true;
+      profile.name = prefs.getString('profileName') ?? '';
+      profile.email = prefs.getString('profileEmail') ?? '';
+      profile.username = prefs.getString('profileUsername') ?? '';
+      profile.image = prefs.getString('profileImage') ?? '';
     });
   } catch (e) {
     logger(e);
@@ -97,6 +108,20 @@ Future<void> saveOnboard() async {
   try {
     await SharedPreferences.getInstance().then((prefs) {
       prefs.setBool('onboard', false);
+    });
+  } catch (e) {
+    logger(e);
+  }
+}
+
+Future<void> saveProfile(Profile model) async {
+  try {
+    await SharedPreferences.getInstance().then((prefs) {
+      profile = model;
+      prefs.setString('profileName', model.name);
+      prefs.setString('profileEmail', model.email);
+      prefs.setString('profileUsername', model.username);
+      prefs.setString('profileImage', model.image);
     });
   } catch (e) {
     logger(e);
