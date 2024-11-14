@@ -29,8 +29,7 @@ class PrimaryButton extends StatelessWidget {
             border: state is ButtonInactive
                 ? Border.all(
                     width: 2,
-                    color:
-                        state is ButtonInitial ? Colors.white : AppColors.main,
+                    color: AppColors.main,
                   )
                 : null,
             boxShadow: [
