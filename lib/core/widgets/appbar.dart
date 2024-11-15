@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import '../config/app_colors.dart';
+import '../config/my_colors.dart';
 import '../utils.dart';
-import 'buttons/cuper_button.dart';
-import 'others/svg_widget.dart';
+import 'my_button.dart';
+import 'svg_wid.dart';
 
 class Appbar extends StatelessWidget {
   const Appbar({
@@ -29,7 +29,7 @@ class Appbar extends StatelessWidget {
         children: [
           if (back) ...[
             const SizedBox(width: 16),
-            CuperButton(
+            MyButton(
               onPressed: () {
                 context.pop();
               },
@@ -37,7 +37,7 @@ class Appbar extends StatelessWidget {
                 height: 44,
                 width: 44,
                 child: Center(
-                  child: SvgWidget(
+                  child: SvgWid(
                     'assets/back.svg',
                     color: white ? Colors.white : null,
                   ),
@@ -50,16 +50,16 @@ class Appbar extends StatelessWidget {
               child: Text(
                 title,
                 style: TextStyle(
-                  color: white ? Colors.white : AppColors.main,
+                  color: white ? Colors.white : MyColors.main,
                   fontSize: 36,
-                  fontFamily: Fonts.ns700,
+                  fontFamily: MyFonts.ns700,
                 ),
               ),
             ),
           ),
           if (back) ...[
             if (onDelete != null) ...[
-              CuperButton(
+              MyButton(
                 onPressed: onDelete,
                 child: const SizedBox(
                   height: 44,

@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 
-import '../../../core/config/app_colors.dart';
+import '../../../core/config/my_colors.dart';
 import '../../../core/models/newss.dart';
 import '../../../core/utils.dart';
-import '../../../core/widgets/buttons/cuper_button.dart';
+import '../../../core/widgets/my_button.dart';
 
 class NewsCard extends StatelessWidget {
   const NewsCard({
@@ -31,7 +31,7 @@ class NewsCard extends StatelessWidget {
           ),
         ],
       ),
-      child: CuperButton(
+      child: MyButton(
         onPressed: () {
           context.push('/home/detailnews', extra: newss);
         },
@@ -59,9 +59,9 @@ class NewsCard extends StatelessWidget {
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                     style: const TextStyle(
-                      color: AppColors.main,
+                      color: MyColors.main,
                       fontSize: 16,
-                      fontFamily: Fonts.ns700,
+                      fontFamily: MyFonts.ns700,
                     ),
                   ),
                   const SizedBox(height: 4),
@@ -70,9 +70,9 @@ class NewsCard extends StatelessWidget {
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
                     style: const TextStyle(
-                      color: AppColors.main,
+                      color: MyColors.main,
                       fontSize: 10,
-                      fontFamily: Fonts.ns400,
+                      fontFamily: MyFonts.ns400,
                     ),
                   ),
                   const Spacer(),
@@ -81,18 +81,18 @@ class NewsCard extends StatelessWidget {
                       const Text(
                         'Finance',
                         style: TextStyle(
-                          color: AppColors.main,
+                          color: MyColors.main,
                           fontSize: 10,
-                          fontFamily: Fonts.ns700,
+                          fontFamily: MyFonts.ns700,
                         ),
                       ),
                       const Spacer(),
                       Text(
                         dateToString(newss.date),
                         style: const TextStyle(
-                          color: AppColors.main,
+                          color: MyColors.main,
                           fontSize: 10,
-                          fontFamily: Fonts.ns700,
+                          fontFamily: MyFonts.ns700,
                         ),
                       ),
                     ],

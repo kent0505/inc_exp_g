@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import '../../../core/config/app_colors.dart';
+import '../../../core/config/my_colors.dart';
 import '../../../core/utils.dart';
-import '../../../core/widgets/buttons/cuper_button.dart';
-import '../../../core/widgets/others/svg_widget.dart';
+import '../../../core/widgets/my_button.dart';
+import '../../../core/widgets/svg_wid.dart';
 
 class CategoryButton extends StatelessWidget {
   const CategoryButton({
@@ -19,7 +19,7 @@ class CategoryButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CuperButton(
+    return MyButton(
       onPressed: () {
         onPressed(title);
       },
@@ -36,7 +36,7 @@ class CategoryButton extends StatelessWidget {
           borderRadius: BorderRadius.circular(36),
           border: Border.all(
             width: 1,
-            color: AppColors.main,
+            color: MyColors.main,
           ),
         ),
         child: Row(
@@ -44,15 +44,15 @@ class CategoryButton extends StatelessWidget {
             SizedBox(
               width: 46,
               child: Center(
-                child: SvgWidget(getCategoryAsset(title)),
+                child: SvgWid(getCategoryAsset(title)),
               ),
             ),
             Text(
               title,
               style: const TextStyle(
-                color: AppColors.main,
+                color: MyColors.main,
                 fontSize: 14,
-                fontFamily: Fonts.ns400,
+                fontFamily: MyFonts.ns400,
               ),
             ),
             const Spacer(),
@@ -62,10 +62,10 @@ class CategoryButton extends StatelessWidget {
               width: 18,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                color: title == current ? AppColors.main : Colors.white,
+                color: title == current ? MyColors.main : Colors.white,
                 border: Border.all(
                   width: 1,
-                  color: AppColors.main,
+                  color: MyColors.main,
                 ),
               ),
             ),

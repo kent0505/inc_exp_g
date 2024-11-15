@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../core/config/app_colors.dart';
+import '../../../core/config/my_colors.dart';
 import '../../../core/models/inc_exp.dart';
 import '../../../core/utils.dart';
-import '../../../core/widgets/buttons/cuper_button.dart';
-import '../../../core/widgets/others/svg_widget.dart';
+import '../../../core/widgets/my_button.dart';
+import '../../../core/widgets/svg_wid.dart';
 
 class HistoryCard extends StatelessWidget {
   const HistoryCard({
@@ -21,21 +21,21 @@ class HistoryCard extends StatelessWidget {
       height: 74,
       margin: const EdgeInsets.only(bottom: 15),
       decoration: BoxDecoration(
-        color: AppColors.main,
+        color: MyColors.main,
         borderRadius: BorderRadius.circular(10),
       ),
-      child: CuperButton(
+      child: MyButton(
         onPressed: () {
           context.push('/home/edit', extra: model);
         },
         child: Row(
           children: [
             const SizedBox(width: 18),
-            SvgWidget(
+            SvgWid(
               model.isIncome ? 'assets/income.svg' : 'assets/expense.svg',
             ),
             const SizedBox(width: 9),
-            SvgWidget(
+            SvgWid(
               getCategoryAsset(model.category),
               color: Colors.white,
               height: 36,
@@ -53,7 +53,7 @@ class HistoryCard extends StatelessWidget {
                     style: const TextStyle(
                       color: Colors.white,
                       fontSize: 16,
-                      fontFamily: Fonts.ns400,
+                      fontFamily: MyFonts.ns400,
                     ),
                   ),
                   const SizedBox(height: 2),
@@ -66,12 +66,14 @@ class HistoryCard extends StatelessWidget {
                           color: Colors.white,
                           borderRadius: BorderRadius.circular(20),
                         ),
-                        child: Text(
-                          model.category,
-                          style: TextStyle(
-                            color: Colors.black.withOpacity(0.74),
-                            fontSize: 14,
-                            fontFamily: Fonts.ns400,
+                        child: Center(
+                          child: Text(
+                            model.category,
+                            style: TextStyle(
+                              color: Colors.black.withOpacity(0.74),
+                              fontSize: 12,
+                              fontFamily: MyFonts.ns400,
+                            ),
                           ),
                         ),
                       ),
@@ -83,12 +85,14 @@ class HistoryCard extends StatelessWidget {
                           color: Colors.white,
                           borderRadius: BorderRadius.circular(20),
                         ),
-                        child: Text(
-                          model.isIncome ? 'Income' : 'Expense',
-                          style: TextStyle(
-                            color: Colors.black.withOpacity(0.74),
-                            fontSize: 14,
-                            fontFamily: Fonts.ns400,
+                        child: Center(
+                          child: Text(
+                            model.isIncome ? 'Income' : 'Expense',
+                            style: TextStyle(
+                              color: Colors.black.withOpacity(0.74),
+                              fontSize: 12,
+                              fontFamily: MyFonts.ns400,
+                            ),
                           ),
                         ),
                       ),
@@ -102,7 +106,7 @@ class HistoryCard extends StatelessWidget {
               style: const TextStyle(
                 color: Colors.white,
                 fontSize: 18,
-                fontFamily: Fonts.ns400,
+                fontFamily: MyFonts.ns400,
               ),
             ),
             const SizedBox(width: 20),

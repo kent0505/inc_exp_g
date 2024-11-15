@@ -2,9 +2,9 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 
-import '../../config/app_colors.dart';
-import '../buttons/cuper_button.dart';
-import 'svg_widget.dart';
+import '../config/my_colors.dart';
+import 'my_button.dart';
+import 'svg_wid.dart';
 
 class ImagePickWidget extends StatelessWidget {
   const ImagePickWidget({
@@ -26,7 +26,7 @@ class ImagePickWidget extends StatelessWidget {
         color: Colors.white,
         border: Border.all(
           width: 4,
-          color: AppColors.main,
+          color: MyColors.main,
         ),
         boxShadow: [
           BoxShadow(
@@ -37,13 +37,13 @@ class ImagePickWidget extends StatelessWidget {
           ),
         ],
       ),
-      child: CuperButton(
+      child: MyButton(
         onPressed: onPressed,
         child: Center(
           child: imagePath.isEmpty
-              ? const SvgWidget(
+              ? const SvgWid(
                   'assets/s1.svg',
-                  color: AppColors.main,
+                  color: MyColors.main,
                   height: 96,
                 )
               : ClipRRect(

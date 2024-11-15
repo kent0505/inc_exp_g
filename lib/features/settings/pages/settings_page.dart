@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../core/config/app_colors.dart';
-import '../../../core/widgets/buttons/cuper_button.dart';
+import '../../../core/config/my_colors.dart';
+import '../../../core/widgets/my_button.dart';
 import '../../../core/widgets/appbar.dart';
-import '../../../core/widgets/others/svg_widget.dart';
+import '../../../core/widgets/svg_wid.dart';
 
 class SettingsPage extends StatelessWidget {
   const SettingsPage({super.key});
@@ -75,15 +75,15 @@ class _SettingsButton extends StatelessWidget {
       margin: const EdgeInsets.symmetric(horizontal: 32),
       height: 45,
       decoration: BoxDecoration(
-        color: AppColors.main,
+        color: MyColors.main,
         borderRadius: BorderRadius.circular(10),
       ),
-      child: CuperButton(
+      child: MyButton(
         onPressed: onPressed,
         child: Row(
           children: [
             const SizedBox(width: 12),
-            SvgWidget('assets/s$id.svg'),
+            SvgWid('assets/s$id.svg'),
             const SizedBox(width: 12),
             Expanded(
               child: Text(
@@ -91,7 +91,7 @@ class _SettingsButton extends StatelessWidget {
                 style: const TextStyle(
                   color: Colors.white,
                   fontSize: 16,
-                  fontFamily: Fonts.ns400,
+                  fontFamily: MyFonts.ns400,
                 ),
               ),
             ),

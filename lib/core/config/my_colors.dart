@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-class AppColors {
+class MyColors {
   static const Color main = Color(0xff0870D9);
 }
 
-class Fonts {
+class MyFonts {
   static const String ns300 = 'NS300';
   static const String ns400 = 'NS400';
   static const String ns500 = 'NS500';

@@ -2,7 +2,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
 
-import 'core/config/app_colors.dart';
+import 'core/config/my_colors.dart';
 import 'core/config/router.dart';
 import 'blocs/button/button_bloc.dart';
 import 'blocs/navbar/navbar_bloc.dart';
@@ -33,9 +33,9 @@ class App extends StatelessWidget {
           scaffoldBackgroundColor: Colors.white,
           useMaterial3: false,
           primarySwatch: Colors.grey,
-          fontFamily: Fonts.ns400,
+          fontFamily: MyFonts.ns400,
           colorScheme: ColorScheme.fromSwatch(
-            accentColor: AppColors.main,
+            accentColor: MyColors.main,
           ),
           dialogTheme: const DialogTheme(
             shape: RoundedRectangleBorder(
@@ -48,5 +48,3 @@ class App extends StatelessWidget {
     );
   }
 }
-
-// news

@@ -1,7 +1,7 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 
-import '../../../core/config/app_colors.dart';
+import '../../../core/config/my_colors.dart';
 import '../../../core/utils.dart';
 import 'legend_widget.dart';
 import 'summary_row.dart';
@@ -53,7 +53,7 @@ class MonthPieChart extends StatelessWidget {
         ),
         Container(
           height: 2,
-          color: AppColors.main,
+          color: MyColors.main,
           margin: const EdgeInsets.symmetric(horizontal: 26),
         ),
         const SizedBox(height: 8),
@@ -143,9 +143,9 @@ class _Title extends StatelessWidget {
     return Text(
       title,
       style: const TextStyle(
-        color: AppColors.main,
+        color: MyColors.main,
         fontSize: 12,
-        fontFamily: Fonts.ns400,
+        fontFamily: MyFonts.ns400,
       ),
     );
   }

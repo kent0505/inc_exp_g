@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 
-import '../../../core/config/app_colors.dart';
+import '../../../core/config/my_colors.dart';
 import '../../../core/models/newss.dart';
 import '../../../core/utils.dart';
 import '../../../core/widgets/appbar.dart';
@@ -37,27 +37,27 @@ class DetailNewsPage extends StatelessWidget {
                 Text(
                   dateToString(newss.date),
                   style: const TextStyle(
-                    color: AppColors.main,
+                    color: MyColors.main,
                     fontSize: 16,
-                    fontFamily: Fonts.ns400,
+                    fontFamily: MyFonts.ns400,
                   ),
                 ),
                 const SizedBox(height: 26),
                 Text(
                   newss.name,
                   style: const TextStyle(
-                    color: AppColors.main,
+                    color: MyColors.main,
                     fontSize: 24,
-                    fontFamily: Fonts.ns700,
+                    fontFamily: MyFonts.ns700,
                   ),
                 ),
                 const SizedBox(height: 26),
                 Text(
                   newss.content,
                   style: const TextStyle(
-                    color: AppColors.main,
-                    fontSize: 20,
-                    fontFamily: Fonts.ns600,
+                    color: MyColors.main,
+                    fontSize: 18,
+                    fontFamily: MyFonts.ns400,
                   ),
                 ),
               ],

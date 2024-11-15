@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:image_picker/image_picker.dart';
 
-import '../../core/config/app_colors.dart';
+import '../../core/config/my_colors.dart';
 import '../../core/models/profile.dart';
 import '../../core/utils.dart';
-import '../../core/widgets/buttons/cuper_button.dart';
-import '../../core/widgets/buttons/primary_button.dart';
-import '../../core/widgets/others/image_pick_widget.dart';
-import '../../core/widgets/textfields/profile_field.dart';
+import '../../core/widgets/my_button.dart';
+import '../../core/widgets/p_button.dart';
+import '../../core/widgets/image_pick_widget.dart';
+import '../../core/widgets/profile_field.dart';
 
 class OnboardProfilePage extends StatefulWidget {
   const OnboardProfilePage({super.key});
@@ -106,15 +106,15 @@ class _OnboardProfilePageState extends State<OnboardProfilePage> {
           Row(
             children: [
               const Spacer(),
-              CuperButton(
+              MyButton(
                 onPressed: onSkip,
                 minSize: 20,
                 child: const Text(
                   'Skip',
                   style: TextStyle(
-                    color: AppColors.main,
+                    color: MyColors.main,
                     fontSize: 12,
-                    fontFamily: Fonts.ns700,
+                    fontFamily: MyFonts.ns700,
                     decoration: TextDecoration.underline,
                   ),
                 ),
@@ -129,9 +129,9 @@ class _OnboardProfilePageState extends State<OnboardProfilePage> {
               title(),
               textAlign: TextAlign.center,
               style: const TextStyle(
-                color: AppColors.main,
+                color: MyColors.main,
                 fontSize: 32,
-                fontFamily: Fonts.ns700,
+                fontFamily: MyFonts.ns700,
               ),
             ),
           ),
@@ -146,9 +146,9 @@ class _OnboardProfilePageState extends State<OnboardProfilePage> {
               child: Text(
                 'Name',
                 style: TextStyle(
-                  color: AppColors.main,
+                  color: MyColors.main,
                   fontSize: 24,
-                  fontFamily: Fonts.ns400,
+                  fontFamily: MyFonts.ns400,
                 ),
               ),
             ),
@@ -162,9 +162,9 @@ class _OnboardProfilePageState extends State<OnboardProfilePage> {
               child: Text(
                 'E-mail',
                 style: TextStyle(
-                  color: AppColors.main,
+                  color: MyColors.main,
                   fontSize: 24,
-                  fontFamily: Fonts.ns400,
+                  fontFamily: MyFonts.ns400,
                 ),
               ),
             ),
@@ -178,9 +178,9 @@ class _OnboardProfilePageState extends State<OnboardProfilePage> {
               child: Text(
                 'Username',
                 style: TextStyle(
-                  color: AppColors.main,
+                  color: MyColors.main,
                   fontSize: 24,
-                  fontFamily: Fonts.ns400,
+                  fontFamily: MyFonts.ns400,
                 ),
               ),
             ),
@@ -198,14 +198,14 @@ class _OnboardProfilePageState extends State<OnboardProfilePage> {
               textAlign: TextAlign.center,
               style: const TextStyle(
                 height: 1.8,
-                color: AppColors.main,
+                color: MyColors.main,
                 fontSize: 18,
-                fontFamily: Fonts.ns300,
+                fontFamily: MyFonts.ns300,
               ),
             ),
           ),
           const SizedBox(height: 30),
-          PrimaryButton(
+          PButton(
             title: pick ? 'Start' : 'Next',
             onPressed: onNext,
           ),

@@ -3,8 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../blocs/inc_exp/inc_exp_bloc.dart';
 import '../../../core/widgets/appbar.dart';
-import '../../../core/widgets/others/no_data.dart';
-import '../../../core/widgets/others/tab_widget.dart';
+import '../../../core/widgets/no_data.dart';
+import '../../../core/widgets/tab_widget.dart';
 import '../widgets/history_card.dart';
 
 class HistoryPage extends StatelessWidget {

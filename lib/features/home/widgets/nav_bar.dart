@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../core/config/app_colors.dart';
-import '../../../core/widgets/others/svg_widget.dart';
-import '../../../core/widgets/buttons/cuper_button.dart';
+import '../../../core/config/my_colors.dart';
+import '../../../core/widgets/svg_wid.dart';
+import '../../../core/widgets/my_button.dart';
 import '../../../blocs/navbar/navbar_bloc.dart';
 
 class NavBar extends StatelessWidget {
@@ -19,7 +19,7 @@ class NavBar extends StatelessWidget {
         alignment: Alignment.center,
         padding: const EdgeInsets.symmetric(horizontal: 24),
         decoration: BoxDecoration(
-          color: AppColors.main,
+          color: MyColors.main,
           borderRadius: const BorderRadius.vertical(
             top: Radius.circular(14),
           ),
@@ -51,24 +51,24 @@ class NavBar extends StatelessWidget {
                         children: [
                           const SizedBox(width: 11),
                           if (state is NavbarInitial)
-                            const SvgWidget(
+                            const SvgWid(
                               'assets/tab1.svg',
-                              color: AppColors.main,
+                              color: MyColors.main,
                             )
                           else if (state is NavbarStatistic)
-                            const SvgWidget(
+                            const SvgWid(
                               'assets/tab2.svg',
-                              color: AppColors.main,
+                              color: MyColors.main,
                             )
                           else if (state is NavbarLessons)
-                            const SvgWidget(
+                            const SvgWid(
                               'assets/tab3.svg',
-                              color: AppColors.main,
+                              color: MyColors.main,
                             )
                           else
-                            const SvgWidget(
+                            const SvgWid(
                               'assets/tab4.svg',
-                              color: AppColors.main,
+                              color: MyColors.main,
                             ),
                         ],
                       ),
@@ -129,14 +129,14 @@ class _NavBarButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CuperButton(
+    return MyButton(
       onPressed: onPressed,
       padding: 0,
       child: SizedBox(
         height: 44,
         width: 44,
         child: Center(
-          child: SvgWidget('assets/tab$id.svg'),
+          child: SvgWid('assets/tab$id.svg'),
         ),
       ),
     );

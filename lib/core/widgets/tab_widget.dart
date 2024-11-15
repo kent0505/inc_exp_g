@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../config/app_colors.dart';
+import '../config/my_colors.dart';
 
 class TabWidget extends StatefulWidget {
   const TabWidget({
@@ -51,7 +51,7 @@ class _TabWidgetState extends State<TabWidget>
             indicator: const UnderlineTabIndicator(
               borderSide: BorderSide(
                 width: 5.0,
-                color: AppColors.main,
+                color: MyColors.main,
               ),
             ),
             overlayColor: WidgetStateProperty.all(
@@ -82,9 +82,9 @@ class _Tab extends StatelessWidget {
       child: Text(
         title,
         style: const TextStyle(
-          color: AppColors.main,
-          fontSize: 22,
-          fontFamily: Fonts.ns400,
+          color: MyColors.main,
+          fontSize: 20,
+          fontFamily: MyFonts.ns400,
         ),
       ),
     );

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import '../../config/app_colors.dart';
+import '../config/my_colors.dart';
 
 class ProfileField extends StatelessWidget {
   const ProfileField({
@@ -24,7 +24,7 @@ class ProfileField extends StatelessWidget {
           borderRadius: BorderRadius.circular(36),
           border: Border.all(
             width: 1,
-            color: AppColors.main,
+            color: MyColors.main,
           ),
         ),
         child: TextField(
@@ -33,9 +33,9 @@ class ProfileField extends StatelessWidget {
           inputFormatters: [LengthLimitingTextInputFormatter(20)],
           textCapitalization: TextCapitalization.sentences,
           style: const TextStyle(
-            color: AppColors.main,
+            color: MyColors.main,
             fontSize: 14,
-            fontFamily: Fonts.ns400,
+            fontFamily: MyFonts.ns400,
           ),
           decoration: InputDecoration(
             contentPadding: const EdgeInsets.symmetric(
@@ -46,7 +46,7 @@ class ProfileField extends StatelessWidget {
             hintStyle: const TextStyle(
               color: Color(0xffD3D3D3),
               fontSize: 14,
-              fontFamily: Fonts.ns400,
+              fontFamily: MyFonts.ns400,
             ),
             focusedBorder: const OutlineInputBorder(
               borderSide: BorderSide(color: Colors.transparent),

@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../../../core/config/app_colors.dart';
+import '../../../core/config/my_colors.dart';
 import '../../../core/models/lesson.dart';
 import '../../../core/utils.dart';
 
@@ -33,9 +33,9 @@ class _LessonsPageState extends State<LessonsPage> {
         const Text(
           'Finance Education',
           style: TextStyle(
-            color: AppColors.main,
+            color: MyColors.main,
             fontSize: 32,
-            fontFamily: Fonts.ns700,
+            fontFamily: MyFonts.ns700,
           ),
         ),
         const SizedBox(height: 12),
@@ -48,9 +48,9 @@ class _LessonsPageState extends State<LessonsPage> {
                 child: Text(
                   'Lesson ${lessonindex + 1}',
                   style: const TextStyle(
-                    color: AppColors.main,
+                    color: MyColors.main,
                     fontSize: 24,
-                    fontFamily: Fonts.ns400,
+                    fontFamily: MyFonts.ns400,
                   ),
                 ),
               ),
@@ -60,9 +60,9 @@ class _LessonsPageState extends State<LessonsPage> {
                   lessonsList[lessonindex].title,
                   textAlign: TextAlign.center,
                   style: const TextStyle(
-                    color: AppColors.main,
+                    color: MyColors.main,
                     fontSize: 24,
-                    fontFamily: Fonts.ns600,
+                    fontFamily: MyFonts.ns600,
                   ),
                 ),
               ),
@@ -71,9 +71,9 @@ class _LessonsPageState extends State<LessonsPage> {
                 child: Text(
                   lessonsList[lessonindex].body,
                   style: const TextStyle(
-                    color: AppColors.main,
+                    color: MyColors.main,
                     fontSize: 14,
-                    fontFamily: Fonts.ns400,
+                    fontFamily: MyFonts.ns400,
                   ),
                 ),
               ),
@@ -87,7 +87,7 @@ class _LessonsPageState extends State<LessonsPage> {
                     borderRadius: BorderRadius.circular(33),
                     border: Border.all(
                       width: 2,
-                      color: AppColors.main,
+                      color: MyColors.main,
                     ),
                     boxShadow: [
                       BoxShadow(
@@ -104,9 +104,9 @@ class _LessonsPageState extends State<LessonsPage> {
                       child: Text(
                         'Next Lesson',
                         style: TextStyle(
-                          color: AppColors.main,
+                          color: MyColors.main,
                           fontSize: 24,
-                          fontFamily: Fonts.ns600,
+                          fontFamily: MyFonts.ns600,
                         ),
                       ),
                     ),

@@ -4,12 +4,12 @@ import 'package:go_router/go_router.dart';
 
 import '../../../blocs/button/button_bloc.dart';
 import '../../../blocs/inc_exp/inc_exp_bloc.dart';
-import '../../../core/config/app_colors.dart';
+import '../../../core/config/my_colors.dart';
 import '../../../core/models/inc_exp.dart';
 import '../../../core/utils.dart';
-import '../../../core/widgets/buttons/primary_button.dart';
+import '../../../core/widgets/p_button.dart';
 import '../../../core/widgets/appbar.dart';
-import '../../../core/widgets/textfields/custom_text_field.dart';
+import '../../../core/widgets/custom_text_field.dart';
 import '../widgets/category_button.dart';
 import '../widgets/title_text.dart';
 
@@ -85,7 +85,7 @@ class _AddPageState extends State<AddPage> {
           Container(
             height: 300,
             decoration: const BoxDecoration(
-              color: AppColors.main,
+              color: MyColors.main,
               borderRadius: BorderRadius.vertical(
                 bottom: Radius.circular(107),
               ),
@@ -156,13 +156,14 @@ class _AddPageState extends State<AddPage> {
                             );
                           },
                         ),
+                        const SizedBox(height: 42),
                       ],
                     ),
                   ),
                 ),
               ),
               const SizedBox(height: 34),
-              PrimaryButton(
+              PButton(
                 title: 'Next',
                 onPressed: onNext,
               ),

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../core/config/app_colors.dart';
+import '../../../core/config/my_colors.dart';
 
 class LegendWidget extends StatelessWidget {
   const LegendWidget({super.key});
@@ -43,9 +43,9 @@ class _LegendItem extends StatelessWidget {
         Text(
           label,
           style: const TextStyle(
-            color: AppColors.main,
+            color: MyColors.main,
             fontSize: 12,
-            fontFamily: Fonts.ns400,
+            fontFamily: MyFonts.ns400,
           ),
         ),
       ],

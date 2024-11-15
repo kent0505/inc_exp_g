@@ -5,10 +5,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../blocs/inc_exp/inc_exp_bloc.dart';
-import '../../../core/config/app_colors.dart';
+import '../../../core/config/my_colors.dart';
 import '../../../core/models/newss.dart';
 import '../../../core/utils.dart';
-import '../../../core/widgets/buttons/cuper_button.dart';
+import '../../../core/widgets/my_button.dart';
 import '../../news/widgets/news_card.dart';
 import '../widgets/add_button.dart';
 
@@ -36,7 +36,7 @@ class MainPageState extends State<MainPage> {
                 color: Colors.white,
                 border: Border.all(
                   width: 1,
-                  color: AppColors.main,
+                  color: MyColors.main,
                 ),
               ),
               child: Center(
@@ -59,8 +59,8 @@ class MainPageState extends State<MainPage> {
               'Balance',
               style: TextStyle(
                 fontSize: 36,
-                color: AppColors.main,
-                fontFamily: Fonts.ns700,
+                color: MyColors.main,
+                fontFamily: MyFonts.ns700,
               ),
             ),
             const SizedBox(width: 34),
@@ -73,7 +73,7 @@ class MainPageState extends State<MainPage> {
           height: 116,
           margin: const EdgeInsets.symmetric(horizontal: 60),
           decoration: BoxDecoration(
-            color: AppColors.main,
+            color: MyColors.main,
             borderRadius: BorderRadius.circular(18),
             boxShadow: [
               BoxShadow(
@@ -86,13 +86,13 @@ class MainPageState extends State<MainPage> {
           child: Column(
             children: [
               const SizedBox(height: 15),
-              const Center(
+              Center(
                 child: Text(
-                  'Id: 00001',
-                  style: TextStyle(
+                  'Id: $userId',
+                  style: const TextStyle(
                     color: Colors.white,
                     fontSize: 12,
-                    fontFamily: Fonts.ns700,
+                    fontFamily: MyFonts.ns700,
                   ),
                 ),
               ),
@@ -104,7 +104,7 @@ class MainPageState extends State<MainPage> {
                     style: const TextStyle(
                       color: Colors.white,
                       fontSize: 34,
-                      fontFamily: Fonts.ns900,
+                      fontFamily: MyFonts.ns900,
                     ),
                   );
                 },
@@ -128,7 +128,7 @@ class MainPageState extends State<MainPage> {
         const SizedBox(height: 20),
         Expanded(
           child: Container(
-            color: AppColors.main,
+            color: MyColors.main,
             child: ListView(
               padding: const EdgeInsets.symmetric(horizontal: 28),
               children: [
@@ -141,11 +141,11 @@ class MainPageState extends State<MainPage> {
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 24,
-                        fontFamily: Fonts.ns700,
+                        fontFamily: MyFonts.ns700,
                       ),
                     ),
                     const Spacer(),
-                    CuperButton(
+                    MyButton(
                       onPressed: () {
                         context.push('/home/news');
                       },
@@ -155,7 +155,7 @@ class MainPageState extends State<MainPage> {
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 12,
-                          fontFamily: Fonts.ns700,
+                          fontFamily: MyFonts.ns700,
                           decoration: TextDecoration.underline,
                         ),
                       ),

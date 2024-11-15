@@ -1,8 +1,11 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:intl/intl.dart';
 
+import 'config/adapters.dart';
 import 'models/inc_exp.dart';
 import 'models/profile.dart';
 
@@ -22,10 +25,9 @@ double getStatusBar(BuildContext context) {
   return MediaQuery.of(context).viewPadding.top;
 }
 
-String boxName = 'incexpgbox';
-String keyName = 'incexpList';
 List<IncExp> incexpList = [];
 bool onboard = true;
+int userId = 0;
 Profile profile = Profile(
   name: '',
   email: '',
@@ -33,10 +35,21 @@ Profile profile = Profile(
   image: '',
 );
 
-Future<void> getData() async {
+Future<int> getRandomId() async {
+  final random = Random();
+  int randomNumber = 1000 + random.nextInt(4001);
+  await SharedPreferences.getInstance().then((prefs) {
+    prefs.setInt('userId', randomNumber);
+  });
+  return randomNumber;
+}
+
+Future getData() async {
   await SharedPreferences.getInstance().then((prefs) async {
     // await prefs.remove('onboard');
     // await prefs.clear();
+
+    userId = prefs.getInt('userId') ?? await getRandomId();
     onboard = prefs.getBool('onboard') ?? true;
     profile.name = prefs.getString('profileName') ?? '';
     profile.email = prefs.getString('profileEmail') ?? '';
@@ -45,13 +58,13 @@ Future<void> getData() async {
   });
 }
 
-Future<void> saveOnboarding() async {
+Future saveOnboarding() async {
   await SharedPreferences.getInstance().then((prefs) {
     prefs.setBool('onboard', false);
   });
 }
 
-Future<void> saveProfile(Profile model) async {
+Future saveProfile(Profile model) async {
   await SharedPreferences.getInstance().then((prefs) {
     profile = model;
     prefs.setString('profileName', model.name);
@@ -61,23 +74,22 @@ Future<void> saveProfile(Profile model) async {
   });
 }
 
-Future<void> initDB() async {
+Future initDatabase() async {
   await Hive.initFlutter();
-  // await Hive.deleteBoxFromDisk(boxName);
   Hive.registerAdapter(IncExpAdapter());
   await getData();
 }
 
-Future<void> getModels() async {
-  final box = await Hive.openBox(boxName);
-  List data = box.get(keyName) ?? [];
+Future getModelss() async {
+  final box = await Hive.openBox('incexpgbox');
+  List data = box.get('incexpList') ?? [];
   incexpList = data.cast<IncExp>();
 }
 
-Future<void> updateModels() async {
-  final box = await Hive.openBox(boxName);
-  box.put(keyName, incexpList);
-  incexpList = await box.get(keyName);
+Future updateModelss() async {
+  final box = await Hive.openBox('incexpgbox');
+  box.put('incexpList', incexpList);
+  incexpList = await box.get('incexpList');
 }
 
 String getCategoryAsset(String cat) {
@@ -117,21 +129,6 @@ List<String> getCategories(bool isIncome) {
           'Rest',
         ];
 }
-
-// int getTodayAmount(bool isIncome) {
-//   DateTime now = DateTime.now();
-//   int incomes = 0;
-//   int expenses = 0;
-//   for (IncExp model in incexpList) {
-//     DateTime date = DateTime.fromMillisecondsSinceEpoch(model.id * 1000);
-//     if (date.month == now.month &&
-//         date.year == now.year &&
-//         date.day == now.day) {
-//       model.isIncome ? incomes += model.amount : expenses += model.amount;
-//     }
-//   }
-//   return isIncome ? incomes : expenses;
-// }
 
 String getCurrentWeekday() {
   return DateFormat('E').format(DateTime.now());

@@ -2,11 +2,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../config/app_colors.dart';
-import '../../../blocs/button/button_bloc.dart';
+import '../config/my_colors.dart';
+import '../../blocs/button/button_bloc.dart';
 
-class PrimaryButton extends StatelessWidget {
-  const PrimaryButton({
+class PButton extends StatelessWidget {
+  const PButton({
     super.key,
     required this.title,
     required this.onPressed,
@@ -24,12 +24,12 @@ class PrimaryButton extends StatelessWidget {
           height: 48,
           width: 260,
           decoration: BoxDecoration(
-            color: state is ButtonInitial ? AppColors.main : Colors.white,
+            color: state is ButtonInitial ? MyColors.main : Colors.white,
             borderRadius: BorderRadius.circular(33),
             border: state is ButtonInactive
                 ? Border.all(
                     width: 2,
-                    color: AppColors.main,
+                    color: MyColors.main,
                   )
                 : null,
             boxShadow: [
@@ -48,9 +48,9 @@ class PrimaryButton extends StatelessWidget {
               child: Text(
                 title,
                 style: TextStyle(
-                  color: state is ButtonInitial ? Colors.white : AppColors.main,
+                  color: state is ButtonInitial ? Colors.white : MyColors.main,
                   fontSize: 24,
-                  fontFamily: Fonts.ns600,
+                  fontFamily: MyFonts.ns600,
                 ),
               ),
             ),

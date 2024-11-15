@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../core/config/app_colors.dart';
-import '../../../core/widgets/buttons/cuper_button.dart';
-import '../../../core/widgets/others/svg_widget.dart';
+import '../../../core/config/my_colors.dart';
+import '../../../core/widgets/my_button.dart';
+import '../../../core/widgets/svg_wid.dart';
 
 class AddButton extends StatelessWidget {
   const AddButton({
@@ -19,7 +19,7 @@ class AddButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        CuperButton(
+        MyButton(
           onPressed: () {
             if (title == 'Income') context.push('/home/add', extra: true);
             if (title == 'Expense') context.push('/home/add', extra: false);
@@ -29,7 +29,7 @@ class AddButton extends StatelessWidget {
             height: 56,
             width: 56,
             decoration: BoxDecoration(
-              color: AppColors.main,
+              color: MyColors.main,
               shape: BoxShape.circle,
               boxShadow: [
                 BoxShadow(
@@ -40,7 +40,7 @@ class AddButton extends StatelessWidget {
               ],
             ),
             child: Center(
-              child: SvgWidget('assets/$asset.svg'),
+              child: SvgWid('assets/$asset.svg'),
             ),
           ),
         ),
@@ -48,9 +48,9 @@ class AddButton extends StatelessWidget {
         Text(
           title,
           style: const TextStyle(
-            color: AppColors.main,
+            color: MyColors.main,
             fontSize: 16,
-            fontFamily: Fonts.ns600,
+            fontFamily: MyFonts.ns600,
           ),
         ),
       ],

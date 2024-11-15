@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../core/config/app_colors.dart';
+import '../../../core/config/my_colors.dart';
 
 class SummaryRow extends StatelessWidget {
   const SummaryRow({
@@ -22,9 +22,9 @@ class SummaryRow extends StatelessWidget {
             child: Text(
               label,
               style: const TextStyle(
-                color: AppColors.main,
+                color: MyColors.main,
                 fontSize: 18,
-                fontFamily: Fonts.ns400,
+                fontFamily: MyFonts.ns400,
               ),
             ),
           ),
@@ -32,9 +32,9 @@ class SummaryRow extends StatelessWidget {
           Text(
             value,
             style: const TextStyle(
-              color: AppColors.main,
+              color: MyColors.main,
               fontSize: 22,
-              fontFamily: Fonts.ns900,
+              fontFamily: MyFonts.ns900,
             ),
           ),
         ],

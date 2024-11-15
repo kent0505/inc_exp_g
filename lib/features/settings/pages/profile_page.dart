@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:image_picker/image_picker.dart';
 
-import '../../../core/config/app_colors.dart';
+import '../../../core/config/my_colors.dart';
 import '../../../core/models/profile.dart';
 import '../../../core/utils.dart';
-import '../../../core/widgets/buttons/primary_button.dart';
+import '../../../core/widgets/p_button.dart';
 import '../../../core/widgets/appbar.dart';
-import '../../../core/widgets/others/image_pick_widget.dart';
-import '../../../core/widgets/textfields/profile_field.dart';
+import '../../../core/widgets/image_pick_widget.dart';
+import '../../../core/widgets/profile_field.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
@@ -84,13 +84,13 @@ class _ProfilePageState extends State<ProfilePage> {
               padding: EdgeInsets.zero,
               children: [
                 const SizedBox(height: 15),
-                const Center(
+                Center(
                   child: Text(
-                    'Id: 0001',
-                    style: TextStyle(
-                      color: AppColors.main,
+                    'Id: $userId',
+                    style: const TextStyle(
+                      color: MyColors.main,
                       fontSize: 24,
-                      fontFamily: Fonts.ns400,
+                      fontFamily: MyFonts.ns400,
                     ),
                   ),
                 ),
@@ -104,9 +104,9 @@ class _ProfilePageState extends State<ProfilePage> {
                   child: Text(
                     'Name',
                     style: TextStyle(
-                      color: AppColors.main,
+                      color: MyColors.main,
                       fontSize: 24,
-                      fontFamily: Fonts.ns400,
+                      fontFamily: MyFonts.ns400,
                     ),
                   ),
                 ),
@@ -120,9 +120,9 @@ class _ProfilePageState extends State<ProfilePage> {
                   child: Text(
                     'E-mail',
                     style: TextStyle(
-                      color: AppColors.main,
+                      color: MyColors.main,
                       fontSize: 24,
-                      fontFamily: Fonts.ns400,
+                      fontFamily: MyFonts.ns400,
                     ),
                   ),
                 ),
@@ -136,9 +136,9 @@ class _ProfilePageState extends State<ProfilePage> {
                   child: Text(
                     'Username',
                     style: TextStyle(
-                      color: AppColors.main,
+                      color: MyColors.main,
                       fontSize: 24,
-                      fontFamily: Fonts.ns400,
+                      fontFamily: MyFonts.ns400,
                     ),
                   ),
                 ),
@@ -149,7 +149,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 ),
                 const SizedBox(height: 82),
                 Center(
-                  child: PrimaryButton(
+                  child: PButton(
                     title: 'Share your profile',
                     onPressed: onSave,
                   ),

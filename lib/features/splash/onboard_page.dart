@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../core/utils.dart';
-import '../../core/config/app_colors.dart';
-import '../../core/widgets/buttons/primary_button.dart';
-import '../../core/widgets/others/svg_widget.dart';
+import '../../core/config/my_colors.dart';
+import '../../core/widgets/p_button.dart';
+import '../../core/widgets/svg_wid.dart';
 
 class OnboardPage extends StatelessWidget {
   const OnboardPage({super.key});
@@ -20,17 +20,17 @@ class OnboardPage extends StatelessWidget {
           const Padding(
             padding: EdgeInsets.symmetric(horizontal: 24),
             child: Text(
-              'An app to manage your finances. We are sure you will find it useful!',
+              'An My to manage your finances. We are sure you will find it useful!',
               textAlign: TextAlign.center,
               style: TextStyle(
-                color: AppColors.main,
+                color: MyColors.main,
                 fontSize: 32,
-                fontFamily: Fonts.ns700,
+                fontFamily: MyFonts.ns700,
               ),
             ),
           ),
           const Spacer(),
-          const SvgWidget('assets/onboard1.svg'),
+          const SvgWid('assets/onboard1.svg'),
           const Spacer(),
           const Padding(
             padding: EdgeInsets.symmetric(horizontal: 52),
@@ -39,14 +39,14 @@ class OnboardPage extends StatelessWidget {
               textAlign: TextAlign.center,
               style: TextStyle(
                 height: 1.8,
-                color: AppColors.main,
+                color: MyColors.main,
                 fontSize: 18,
-                fontFamily: Fonts.ns300,
+                fontFamily: MyFonts.ns300,
               ),
             ),
           ),
           const SizedBox(height: 30),
-          PrimaryButton(
+          PButton(
             title: 'Continue',
             onPressed: () {
               context.push('/onboard/profile');
