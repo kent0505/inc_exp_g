@@ -30,6 +30,7 @@ class DetailNewsPage extends StatelessWidget {
                     imageUrl: newss.url,
                     height: 200,
                     fit: BoxFit.cover,
+                    errorWidget: (context, url, error) => Container(),
                   ),
                 ),
                 const SizedBox(height: 26),
