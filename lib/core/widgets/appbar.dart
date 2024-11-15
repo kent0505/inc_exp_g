@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import '../config/my_colors.dart';
-import '../utils.dart';
+import '../config/utilities.dart';
 import 'my_button.dart';
 import 'svg_wid.dart';
 

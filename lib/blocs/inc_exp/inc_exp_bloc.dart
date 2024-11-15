@@ -2,7 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../core/models/inc_exp.dart';
-import '../../core/utils.dart';
+import '../../core/config/utilities.dart';
 
 part 'inc_exp_event.dart';
 part 'inc_exp_state.dart';

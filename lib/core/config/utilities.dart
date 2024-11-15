@@ -5,9 +5,9 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:intl/intl.dart';
 
-import 'config/adapters.dart';
-import 'models/inc_exp.dart';
-import 'models/profile.dart';
+import 'adapters.dart';
+import '../models/inc_exp.dart';
+import '../models/profile.dart';
 
 int timestamp() {
   return DateTime.now().millisecondsSinceEpoch ~/ 1000;

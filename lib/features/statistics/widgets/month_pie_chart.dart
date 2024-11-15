@@ -2,7 +2,7 @@ import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 
 import '../../../core/config/my_colors.dart';
-import '../../../core/utils.dart';
+import '../../../core/config/utilities.dart';
 import 'legend_widget.dart';
 import 'summary_row.dart';
 

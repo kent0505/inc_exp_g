@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../../../core/config/my_colors.dart';
 import '../../../core/models/lesson.dart';
-import '../../../core/utils.dart';
+import '../../../core/config/utilities.dart';
 
 class LessonsPage extends StatefulWidget {
   const LessonsPage({super.key});

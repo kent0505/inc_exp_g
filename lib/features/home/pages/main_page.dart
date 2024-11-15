@@ -7,7 +7,7 @@ import 'package:go_router/go_router.dart';
 import '../../../blocs/inc_exp/inc_exp_bloc.dart';
 import '../../../core/config/my_colors.dart';
 import '../../../core/models/newss.dart';
-import '../../../core/utils.dart';
+import '../../../core/config/utilities.dart';
 import '../../../core/widgets/my_button.dart';
 import '../../news/widgets/news_card.dart';
 import '../widgets/add_button.dart';

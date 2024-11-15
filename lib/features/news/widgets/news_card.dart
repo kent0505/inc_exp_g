@@ -4,7 +4,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 
 import '../../../core/config/my_colors.dart';
 import '../../../core/models/newss.dart';
-import '../../../core/utils.dart';
+import '../../../core/config/utilities.dart';
 import '../../../core/widgets/my_button.dart';
 
 class NewsCard extends StatelessWidget {
