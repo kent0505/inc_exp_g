@@ -24,7 +24,7 @@ class Appbar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 50,
-      margin: EdgeInsets.only(top: 24 + getStatusBar(context)),
+      margin: EdgeInsets.only(top: 24 + statusBar(context)),
       child: Row(
         children: [
           if (back) ...[

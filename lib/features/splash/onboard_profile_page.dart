@@ -102,7 +102,7 @@ class _OnboardProfilePageState extends State<OnboardProfilePage> {
     return Scaffold(
       body: Column(
         children: [
-          SizedBox(height: 20 + getStatusBar(context)),
+          SizedBox(height: 20 + statusBar(context)),
           Row(
             children: [
               const Spacer(),

@@ -19,18 +19,18 @@ class IncExpBloc extends Bloc<IncExpEvent, IncExpState> {
     );
   }
 
-  void _getIncExp(GetIncExpEvent event, Emitter<IncExpState> emit) async {
+  _getIncExp(GetIncExpEvent event, Emitter<IncExpState> emit) async {
     await getModelss();
     emit(IncExpLoadedState(models: incexpList));
   }
 
-  void _addIncExp(AddIncExpEvent event, Emitter<IncExpState> emit) async {
+  _addIncExp(AddIncExpEvent event, Emitter<IncExpState> emit) async {
     incexpList.insert(0, event.model);
     await updateModelss();
     emit(IncExpLoadedState(models: incexpList));
   }
 
-  void _editIncExp(EditIncExpEvent event, Emitter<IncExpState> emit) async {
+  _editIncExp(EditIncExpEvent event, Emitter<IncExpState> emit) async {
     for (IncExp model in incexpList) {
       if (identical(model.id, event.model.id)) {
         model.amount = event.model.amount;
@@ -42,7 +42,7 @@ class IncExpBloc extends Bloc<IncExpEvent, IncExpState> {
     emit(IncExpLoadedState(models: incexpList));
   }
 
-  void _deleteIncExp(DeleteIncExpEvent event, Emitter<IncExpState> emit) async {
+  _deleteIncExp(DeleteIncExpEvent event, Emitter<IncExpState> emit) async {
     incexpList.removeWhere((model) => identical(model, event.model));
     await updateModelss();
     emit(IncExpLoadedState(models: incexpList));

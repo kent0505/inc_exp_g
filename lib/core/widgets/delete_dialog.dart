@@ -19,30 +19,28 @@ class DeleteDialog extends StatelessWidget {
       backgroundColor: MyColors.main,
       child: SizedBox(
         height: 200,
+        width: 320,
         child: Column(
           children: [
             const SizedBox(height: 20),
             Text(
               title,
               style: const TextStyle(
-                fontSize: 20,
-                fontFamily: MyFonts.ns700,
-                color: Colors.white,
-              ),
+                  fontSize: 20, fontFamily: MyFonts.ns700, color: Colors.white),
             ),
             const Spacer(),
             Row(
               children: [
                 const SizedBox(width: 20),
-                _Button(
-                  title: 'NO',
+                _Buttonn(
+                  title: 'No',
                   onPressed: () {
                     Navigator.pop(context);
                   },
                 ),
                 const Spacer(),
-                _Button(
-                  title: 'YES',
+                _Buttonn(
+                  title: 'Yes',
                   onPressed: () {
                     Navigator.pop(context);
                     onYes();
@@ -59,8 +57,8 @@ class DeleteDialog extends StatelessWidget {
   }
 }
 
-class _Button extends StatelessWidget {
-  const _Button({
+class _Buttonn extends StatelessWidget {
+  const _Buttonn({
     required this.title,
     required this.onPressed,
   });
@@ -71,8 +69,8 @@ class _Button extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MyButton(
-      padding: 0,
       onPressed: onPressed,
+      padding: 0,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [

@@ -8,15 +8,12 @@ class ButtonBloc extends Bloc<ButtonEvent, ButtonState> {
   ButtonBloc() : super(ButtonInitial()) {
     on<ButtonEvent>(
       (event, emit) => switch (event) {
-        CheckButtonActive() => _checkButtonActive(event, emit),
+        CheckButtonActive() => _checkButton(event, emit),
       },
     );
   }
 
-  void _checkButtonActive(
-    CheckButtonActive event,
-    Emitter<ButtonState> emit,
-  ) {
+  _checkButton(CheckButtonActive event, Emitter<ButtonState> emit) {
     final isEmpty = event.controllers.any((controller) => controller.isEmpty);
     emit(isEmpty ? ButtonInactive() : ButtonInitial());
   }

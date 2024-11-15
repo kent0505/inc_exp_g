@@ -8,15 +8,15 @@ class CustomTextField extends StatefulWidget {
     super.key,
     required this.controller,
     required this.hintText,
-    this.number = false,
     this.length = 20,
+    this.number = false,
     required this.onChanged,
   });
 
   final TextEditingController controller;
   final String hintText;
-  final bool number;
   final int length;
+  final bool number;
   final void Function() onChanged;
 
   @override
@@ -24,14 +24,14 @@ class CustomTextField extends StatefulWidget {
 }
 
 class _CustomTextFieldState extends State<CustomTextField> {
-  TextInputType? _keyboardType() {
+  TextInputType? _keyboard() {
     if (widget.number) return TextInputType.number;
     return null;
   }
 
-  List<TextInputFormatter>? _inputFormatters() {
-    final length = LengthLimitingTextInputFormatter(widget.length);
+  List<TextInputFormatter>? _formatters() {
     final digit = FilteringTextInputFormatter.digitsOnly;
+    final length = LengthLimitingTextInputFormatter(widget.length);
     if (widget.number) return [length, digit];
     return [length];
   }
@@ -51,8 +51,8 @@ class _CustomTextFieldState extends State<CustomTextField> {
       ),
       child: TextField(
         controller: widget.controller,
-        keyboardType: _keyboardType(),
-        inputFormatters: _inputFormatters(),
+        keyboardType: _keyboard(),
+        inputFormatters: _formatters(),
         textCapitalization: TextCapitalization.sentences,
         style: const TextStyle(
           color: MyColors.main,
@@ -60,10 +60,8 @@ class _CustomTextFieldState extends State<CustomTextField> {
           fontFamily: MyFonts.ns400,
         ),
         decoration: InputDecoration(
-          contentPadding: const EdgeInsets.symmetric(
-            vertical: 0,
-            horizontal: 24,
-          ),
+          contentPadding:
+              const EdgeInsets.symmetric(vertical: 0, horizontal: 24),
           hintText: widget.hintText,
           hintStyle: const TextStyle(
             color: Color(0xffD3D3D3),

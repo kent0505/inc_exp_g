@@ -18,21 +18,21 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
-  final controller1 = TextEditingController();
-  final controller2 = TextEditingController();
-  final controller3 = TextEditingController();
-  final controller4 = TextEditingController();
+  final con1 = TextEditingController();
+  final con2 = TextEditingController();
+  final con3 = TextEditingController();
+  final con4 = TextEditingController();
 
   ImagePicker picker = ImagePicker();
   XFile image = XFile('');
 
-  void onPickImage() async {
-    image = await pickImage();
-    controller4.text = image.path;
+  void onPickImg() async {
+    image = await pickImg();
+    con4.text = image.path;
     setState(() {});
   }
 
-  Future<XFile> pickImage() async {
+  Future<XFile> pickImg() async {
     try {
       final image = await ImagePicker().pickImage(source: ImageSource.gallery);
       if (image == null) return XFile('');
@@ -45,10 +45,10 @@ class _ProfilePageState extends State<ProfilePage> {
   void onSave() async {
     await saveProfile(
       Profile(
-        name: controller1.text,
-        email: controller2.text,
-        username: controller3.text,
-        image: controller4.text,
+        name: con1.text,
+        email: con2.text,
+        username: con3.text,
+        image: con4.text,
       ),
     ).then((_) {
       if (mounted) context.pop();
@@ -58,18 +58,18 @@ class _ProfilePageState extends State<ProfilePage> {
   @override
   void initState() {
     super.initState();
-    controller1.text = profile.name;
-    controller2.text = profile.email;
-    controller3.text = profile.username;
-    controller4.text = profile.image;
+    con1.text = profile.name;
+    con2.text = profile.email;
+    con3.text = profile.username;
+    con4.text = profile.image;
   }
 
   @override
   void dispose() {
-    controller1.dispose();
-    controller2.dispose();
-    controller3.dispose();
-    controller4.dispose();
+    con1.dispose();
+    con2.dispose();
+    con3.dispose();
+    con4.dispose();
     super.dispose();
   }
 
@@ -96,8 +96,8 @@ class _ProfilePageState extends State<ProfilePage> {
                 ),
                 const SizedBox(height: 46),
                 ImagePickWidget(
-                  imagePath: controller4.text,
-                  onPressed: onPickImage,
+                  imagePath: con4.text,
+                  onPressed: onPickImg,
                 ),
                 const SizedBox(height: 46),
                 const Center(
@@ -112,7 +112,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 ),
                 const SizedBox(height: 12),
                 ProfileField(
-                  controller: controller1,
+                  controller: con1,
                   hintText: 'Name',
                 ),
                 const SizedBox(height: 16),
@@ -128,7 +128,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 ),
                 const SizedBox(height: 12),
                 ProfileField(
-                  controller: controller2,
+                  controller: con2,
                   hintText: 'E-mail',
                 ),
                 const SizedBox(height: 16),
@@ -144,7 +144,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 ),
                 const SizedBox(height: 12),
                 ProfileField(
-                  controller: controller3,
+                  controller: con3,
                   hintText: 'Username',
                 ),
                 const SizedBox(height: 82),

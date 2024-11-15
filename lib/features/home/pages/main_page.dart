@@ -24,7 +24,7 @@ class MainPageState extends State<MainPage> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        SizedBox(height: 8 + getStatusBar(context)),
+        SizedBox(height: 8 + statusBar(context)),
         Row(
           children: [
             const SizedBox(width: 60),

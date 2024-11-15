@@ -21,7 +21,7 @@ String formatNumber(int number) {
   return '\$ ${NumberFormat('#,###').format(number).replaceAll(',', ' ')}';
 }
 
-double getStatusBar(BuildContext context) {
+double statusBar(BuildContext context) {
   return MediaQuery.of(context).viewPadding.top;
 }
 
@@ -46,9 +46,6 @@ Future<int> getRandomId() async {
 
 Future getData() async {
   await SharedPreferences.getInstance().then((prefs) async {
-    // await prefs.remove('onboard');
-    // await prefs.clear();
-
     userId = prefs.getInt('userId') ?? await getRandomId();
     onboard = prefs.getBool('onboard') ?? true;
     profile.name = prefs.getString('profileName') ?? '';
@@ -81,15 +78,15 @@ Future initDatabase() async {
 }
 
 Future getModelss() async {
-  final box = await Hive.openBox('incexpgbox');
-  List data = box.get('incexpList') ?? [];
+  final boxxx = await Hive.openBox('incexpgbox');
+  List data = boxxx.get('incexpList') ?? [];
   incexpList = data.cast<IncExp>();
 }
 
 Future updateModelss() async {
-  final box = await Hive.openBox('incexpgbox');
-  box.put('incexpList', incexpList);
-  incexpList = await box.get('incexpList');
+  final boxxx = await Hive.openBox('incexpgbox');
+  boxxx.put('incexpList', incexpList);
+  incexpList = await boxxx.get('incexpList');
 }
 
 String getCategoryAsset(String cat) {

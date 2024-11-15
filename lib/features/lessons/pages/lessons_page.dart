@@ -29,7 +29,7 @@ class _LessonsPageState extends State<LessonsPage> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        SizedBox(height: 28 + getStatusBar(context)),
+        SizedBox(height: 28 + statusBar(context)),
         const Text(
           'Finance Education',
           style: TextStyle(

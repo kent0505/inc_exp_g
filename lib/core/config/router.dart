@@ -18,15 +18,21 @@ final routerConfig = GoRouter(
   routes: [
     GoRoute(
       path: '/',
-      builder: (context, state) => const SplashPage(),
+      builder: (context, state) {
+        return const SplashPage();
+      },
     ),
     GoRoute(
       path: '/onboard',
-      builder: (context, state) => const OnboardPage(),
+      builder: (context, state) {
+        return const OnboardPage();
+      },
       routes: [
         GoRoute(
           path: 'profile',
-          builder: (context, state) => const OnboardProfilePage(),
+          builder: (context, state) {
+            return const OnboardProfilePage();
+          },
         ),
       ],
     ),
@@ -36,33 +42,45 @@ final routerConfig = GoRouter(
       routes: [
         GoRoute(
           path: 'add',
-          builder: (context, state) => AddPage(
-            isIncome: state.extra as bool,
-          ),
+          builder: (context, state) {
+            return AddPage(
+              isIncome: state.extra as bool,
+            );
+          },
         ),
         GoRoute(
           path: 'edit',
-          builder: (context, state) => EditPage(
-            model: state.extra as IncExp,
-          ),
+          builder: (context, state) {
+            return EditPage(
+              model: state.extra as IncExp,
+            );
+          },
         ),
         GoRoute(
           path: 'history',
-          builder: (context, state) => const HistoryPage(),
+          builder: (context, state) {
+            return const HistoryPage();
+          },
         ),
         GoRoute(
           path: 'news',
-          builder: (context, state) => const NewsPage(),
+          builder: (context, state) {
+            return const NewsPage();
+          },
         ),
         GoRoute(
           path: 'detailnews',
-          builder: (context, state) => DetailNewsPage(
-            newss: state.extra as Newss,
-          ),
+          builder: (context, state) {
+            return DetailNewsPage(
+              newss: state.extra as Newss,
+            );
+          },
         ),
         GoRoute(
           path: 'profile',
-          builder: (context, state) => const ProfilePage(),
+          builder: (context, state) {
+            return const ProfilePage();
+          },
         ),
       ],
     ),

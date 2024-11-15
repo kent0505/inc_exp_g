@@ -15,10 +15,7 @@ import '../widgets/category_button.dart';
 import '../widgets/title_text.dart';
 
 class EditPage extends StatefulWidget {
-  const EditPage({
-    super.key,
-    required this.model,
-  });
+  const EditPage({super.key, required this.model});
 
   final IncExp model;
 
@@ -27,25 +24,21 @@ class EditPage extends StatefulWidget {
 }
 
 class _AddPageState extends State<EditPage> {
-  final controller1 = TextEditingController();
-  final controller2 = TextEditingController();
-  final controller3 = TextEditingController();
+  final con1 = TextEditingController();
+  final con2 = TextEditingController();
+  final con3 = TextEditingController();
 
   void checkActive() {
     context.read<ButtonBloc>().add(
           CheckButtonActive(
-            controllers: [
-              controller1.text,
-              controller2.text,
-              controller3.text,
-            ],
+            controllers: [con1.text, con2.text, con3.text],
           ),
         );
   }
 
   void onCategory(String value) {
-    if (identical(value, controller3.text)) return;
-    controller3.text = value;
+    if (identical(value, con3.text)) return;
+    con3.text = value;
     checkActive();
   }
 
@@ -53,12 +46,11 @@ class _AddPageState extends State<EditPage> {
     context.read<IncExpBloc>().add(
           EditIncExpEvent(
             model: IncExp(
-              id: widget.model.id,
-              amount: int.tryParse(controller1.text) ?? 0,
-              title: controller2.text,
-              category: controller3.text,
-              isIncome: widget.model.isIncome,
-            ),
+                id: widget.model.id,
+                amount: int.tryParse(con1.text) ?? 0,
+                title: con2.text,
+                category: con3.text,
+                isIncome: widget.model.isIncome),
           ),
         );
     context.pop();
@@ -71,9 +63,9 @@ class _AddPageState extends State<EditPage> {
         return DeleteDialog(
           title: widget.model.isIncome ? 'Delete Income?' : 'Delete Expense?',
           onYes: () {
-            context
-                .read<IncExpBloc>()
-                .add(DeleteIncExpEvent(model: widget.model));
+            context.read<IncExpBloc>().add(
+                  DeleteIncExpEvent(model: widget.model),
+                );
             context.pop();
           },
         );
@@ -84,16 +76,16 @@ class _AddPageState extends State<EditPage> {
   @override
   void initState() {
     super.initState();
-    controller1.text = widget.model.amount.toString();
-    controller2.text = widget.model.title;
-    controller3.text = widget.model.category;
+    con1.text = widget.model.amount.toString();
+    con2.text = widget.model.title;
+    con3.text = widget.model.category;
     checkActive();
   }
 
   @override
   void dispose() {
-    controller1.dispose();
-    controller2.dispose();
+    con1.dispose();
+    con2.dispose();
     super.dispose();
   }
 
@@ -143,7 +135,7 @@ class _AddPageState extends State<EditPage> {
                         const TitleText('Amount'),
                         const SizedBox(height: 8),
                         CustomTextField(
-                          controller: controller1,
+                          controller: con1,
                           hintText: widget.model.isIncome
                               ? 'Income amount'
                               : 'Expense amount',
@@ -154,7 +146,7 @@ class _AddPageState extends State<EditPage> {
                         const TitleText('Title'),
                         const SizedBox(height: 8),
                         CustomTextField(
-                          controller: controller2,
+                          controller: con2,
                           hintText: 'Name title',
                           onChanged: checkActive,
                         ),
@@ -169,7 +161,7 @@ class _AddPageState extends State<EditPage> {
                                   (title) {
                                     return CategoryButton(
                                       title: title,
-                                      current: controller3.text,
+                                      current: con3.text,
                                       onPressed: onCategory,
                                     );
                                   },

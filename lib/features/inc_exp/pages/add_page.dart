@@ -14,10 +14,7 @@ import '../widgets/category_button.dart';
 import '../widgets/title_text.dart';
 
 class AddPage extends StatefulWidget {
-  const AddPage({
-    super.key,
-    required this.isIncome,
-  });
+  const AddPage({super.key, required this.isIncome});
 
   final bool isIncome;
 
@@ -26,25 +23,21 @@ class AddPage extends StatefulWidget {
 }
 
 class _AddPageState extends State<AddPage> {
-  final controller1 = TextEditingController();
-  final controller2 = TextEditingController();
-  final controller3 = TextEditingController();
+  final con1 = TextEditingController();
+  final con2 = TextEditingController();
+  final con3 = TextEditingController();
 
   void checkActive() {
     context.read<ButtonBloc>().add(
           CheckButtonActive(
-            controllers: [
-              controller1.text,
-              controller2.text,
-              controller3.text,
-            ],
+            controllers: [con1.text, con2.text, con3.text],
           ),
         );
   }
 
   void onCategory(String value) {
-    if (identical(value, controller3.text)) return;
-    controller3.text = value;
+    if (identical(value, con3.text)) return;
+    con3.text = value;
     checkActive();
   }
 
@@ -52,12 +45,11 @@ class _AddPageState extends State<AddPage> {
     context.read<IncExpBloc>().add(
           AddIncExpEvent(
             model: IncExp(
-              id: timestamp(),
-              amount: int.tryParse(controller1.text) ?? 0,
-              title: controller2.text,
-              category: controller3.text,
-              isIncome: widget.isIncome,
-            ),
+                id: timestamp(),
+                amount: int.tryParse(con1.text) ?? 0,
+                title: con2.text,
+                category: con3.text,
+                isIncome: widget.isIncome),
           ),
         );
     context.pop();
@@ -71,8 +63,8 @@ class _AddPageState extends State<AddPage> {
 
   @override
   void dispose() {
-    controller1.dispose();
-    controller2.dispose();
+    con1.dispose();
+    con2.dispose();
     super.dispose();
   }
 
@@ -121,7 +113,7 @@ class _AddPageState extends State<AddPage> {
                         const TitleText('Amount'),
                         const SizedBox(height: 8),
                         CustomTextField(
-                          controller: controller1,
+                          controller: con1,
                           hintText: widget.isIncome
                               ? 'Income amount'
                               : 'Expense amount',
@@ -132,7 +124,7 @@ class _AddPageState extends State<AddPage> {
                         const TitleText('Title'),
                         const SizedBox(height: 8),
                         CustomTextField(
-                          controller: controller2,
+                          controller: con2,
                           hintText: 'Name title',
                           onChanged: checkActive,
                         ),
@@ -147,7 +139,7 @@ class _AddPageState extends State<AddPage> {
                                   (title) {
                                     return CategoryButton(
                                       title: title,
-                                      current: controller3.text,
+                                      current: con3.text,
                                       onPressed: onCategory,
                                     );
                                   },

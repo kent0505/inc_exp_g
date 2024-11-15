@@ -15,7 +15,7 @@ class OnboardPage extends StatelessWidget {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          SizedBox(height: getStatusBar(context)),
+          SizedBox(height: statusBar(context)),
           const Spacer(),
           const Padding(
             padding: EdgeInsets.symmetric(horizontal: 24),

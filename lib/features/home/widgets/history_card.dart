@@ -8,10 +8,7 @@ import '../../../core/widgets/my_button.dart';
 import '../../../core/widgets/svg_wid.dart';
 
 class HistoryCard extends StatelessWidget {
-  const HistoryCard({
-    super.key,
-    required this.model,
-  });
+  const HistoryCard({super.key, required this.model});
 
   final IncExp model;
 
@@ -35,10 +32,15 @@ class HistoryCard extends StatelessWidget {
               model.isIncome ? 'assets/income.svg' : 'assets/expense.svg',
             ),
             const SizedBox(width: 9),
-            SvgWid(
-              getCategoryAsset(model.category),
-              color: Colors.white,
+            SizedBox(
               height: 36,
+              width: 36,
+              child: SvgWid(
+                getCategoryAsset(model.category),
+                color: Colors.white,
+                height: 36,
+                width: 36,
+              ),
             ),
             const SizedBox(width: 15),
             Expanded(
